@@ -1,63 +1,21 @@
 /* =========================================================
    2026 CHINESE CULTURE FESTIVAL – HARVEST MOON CELEBRATION
-   High-Performance 60/120 FPS Interactive Engine
+   High-Performance Locked Viewport Interactive Engine
    ========================================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
-  /* -------------------------------------------------------------
-     1. HIGH-PERFORMANCE 3D PERSPECTIVE & SCROLL ANIMATION ENGINE
-     ------------------------------------------------------------- */
-  const heroTrack = document.getElementById('heroScrollTrack');
   const heroSection = document.getElementById('heroSection');
   const titleEl = document.getElementById('heroTitleWrapper');
-
-  // Cached layout metrics to eliminate getBoundingClientRect() reflows
-  let winW = window.innerWidth;
-  let winH = window.innerHeight;
-  let heroScrollDistance = heroTrack ? Math.max(1, heroTrack.offsetHeight - winH) : winH;
-
-  let resizeRafId = null;
-  function updateMetrics() {
-    if (resizeRafId) return;
-    resizeRafId = requestAnimationFrame(() => {
-      winW = window.innerWidth;
-      winH = window.innerHeight;
-      if (heroTrack) {
-        heroScrollDistance = Math.max(1, heroTrack.offsetHeight - winH);
-      }
-      resizeDustCanvas();
-      resizeRafId = null;
-    });
-  }
-
-  window.addEventListener('resize', updateMetrics, { passive: true });
-
-  // Scroll Tracking & Direction-Aware Asymmetric Auto-Snap
-  let targetScrollY = window.scrollY || window.pageYOffset || 0;
-  let currentScrollY = targetScrollY;
-  let lastScrollY = targetScrollY;
-  let scrollDeltaY = 0;
-  let animProgress = 0;
-  let targetProgress = 0;
-
-  let isHeroVisible = true;
-  let isRafRunning = false;
-  let lastPStr = '';
-  let lastPointerEvents = '';
-  let lastSnappingState = false;
-
-  /* -------------------------------------------------------------
-     2. FAST OPTIMIZED GOLDEN DUST PARTICLES (Canvas Sim)
-     ------------------------------------------------------------- */
   const canvas = document.getElementById('ambientDustCanvas');
   const ctx = canvas ? canvas.getContext('2d', { alpha: true, desynchronized: true }) : null;
-  const particles = [];
-  const PARTICLE_COUNT = 28; // Optimal balance for ethereal atmosphere and 120 FPS mobile GPU efficiency
 
+  /* -------------------------------------------------------------
+     1. RESPONSIVE METRICS & PARTICLE CANVAS
+     ------------------------------------------------------------- */
   function resizeDustCanvas() {
     if (!canvas || !heroSection) return;
-    const w = heroSection.clientWidth;
-    const h = heroSection.clientHeight;
+    const w = heroSection.clientWidth || window.innerWidth;
+    const h = heroSection.clientHeight || window.innerHeight;
     if (canvas.width !== w || canvas.height !== h) {
       canvas.width = w;
       canvas.height = h;
@@ -65,6 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   resizeDustCanvas();
+  window.addEventListener('resize', resizeDustCanvas, { passive: true });
+
+  const particles = [];
+  const PARTICLE_COUNT = 28;
 
   class StardustParticle {
     constructor() {
@@ -106,69 +68,79 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* -------------------------------------------------------------
-     3. LIFECYCLE-AWARE 60/120 FPS RAF ENGINE
+     2. LOCKED VIEWPORT GESTURE & PARALLAX TRACKING
+     ------------------------------------------------------------- */
+  let animProgress = 0;
+  let targetProgress = 0;
+  let lastPStr = '';
+  let lastPointerEvents = '';
+
+  // Wheel interaction (desktop touchpad / mousewheel)
+  window.addEventListener('wheel', (e) => {
+    targetProgress = Math.max(0, Math.min(1.0, targetProgress + e.deltaY * 0.0018));
+    resetIdleTimer();
+  }, { passive: true });
+
+  // Touch gesture interaction (mobile swipe up / down)
+  let touchStartY = 0;
+  window.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches[0]) {
+      touchStartY = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  window.addEventListener('touchmove', (e) => {
+    if (e.touches && e.touches[0]) {
+      const currentY = e.touches[0].clientY;
+      const deltaY = touchStartY - currentY;
+      touchStartY = currentY;
+      targetProgress = Math.max(0, Math.min(1.0, targetProgress + deltaY * 0.0032));
+      resetIdleTimer();
+    }
+  }, { passive: true });
+
+  // Gentle auto-return to poster rest state when idle
+  let idleTimer = null;
+  function resetIdleTimer() {
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(() => {
+      targetProgress = 0.0;
+    }, 2800);
+  }
+
+  window.addEventListener('touchend', resetIdleTimer, { passive: true });
+
+  /* -------------------------------------------------------------
+     3. 60/120 FPS RAF COMPOSITING ENGINE
      ------------------------------------------------------------- */
   let time = 0;
 
-  function render3D() {
-    if (!isHeroVisible) {
-      isRafRunning = false;
-      return;
-    }
-
+  function renderLoop() {
     time += 0.022;
 
-    // Smooth sub-pixel lerp for scroll position
-    const diff = targetScrollY - currentScrollY;
-    if (Math.abs(diff) < 0.15) {
-      currentScrollY = targetScrollY;
-    } else {
-      currentScrollY += diff * 0.20;
-    }
-
-    // Direct mapping to hero scroll progress (0.0 at top to 1.0 when hero track is completed)
-    const rawProgress = Math.max(0, Math.min(1.0, currentScrollY / heroScrollDistance));
-    
-    // Direction-aware Asymmetric Auto-Snap & Forward Progress:
-    if (currentScrollY <= 15) {
-      targetProgress = 0.0;
-    } else if (scrollDeltaY < -4 && currentScrollY < heroScrollDistance * 0.6) {
-      targetProgress = 0.0;
-    } else {
-      targetProgress = rawProgress;
-    }
-
-    // Continuous LERP eliminates mid-scroll jumps and thread conflicts
-    animProgress += (targetProgress - animProgress) * 0.18;
+    // Smooth sub-pixel interpolation
+    animProgress += (targetProgress - animProgress) * 0.14;
     if (Math.abs(targetProgress - animProgress) < 0.0004) {
       animProgress = targetProgress;
     }
-    const p = animProgress;
-    const pStr = p.toFixed(4);
 
-    // Optimized DOM Write: Only touch style property when changed
+    const pStr = animProgress.toFixed(4);
+
     if (heroSection && pStr !== lastPStr) {
       heroSection.style.setProperty('--p', pStr);
       lastPStr = pStr;
-      
-      const isSnapping = scrollDeltaY < -4 && currentScrollY < heroScrollDistance * 0.6;
-      if (isSnapping !== lastSnappingState) {
-        heroSection.classList.toggle('hero-snapping', isSnapping);
-        lastSnappingState = isSnapping;
-      }
     }
 
-    // Optimized pointer-events assignment
     if (titleEl) {
-      const isNearRest = p <= 0.10 && currentScrollY <= 30;
-      const targetPointerEvents = isNearRest ? 'auto' : 'none';
-      if (targetPointerEvents !== lastPointerEvents) {
-        titleEl.style.pointerEvents = targetPointerEvents;
-        lastPointerEvents = targetPointerEvents;
+      const isInteractive = animProgress <= 0.20;
+      const pointerState = isInteractive ? 'auto' : 'none';
+      if (pointerState !== lastPointerEvents) {
+        titleEl.style.pointerEvents = pointerState;
+        lastPointerEvents = pointerState;
       }
     }
 
-    // Ambient Golden Stardust Render
+    // Render golden stardust particles
     if (ctx && canvas) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       for (let i = 0; i < particles.length; i++) {
@@ -177,41 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    requestAnimationFrame(render3D);
+    requestAnimationFrame(renderLoop);
   }
 
-  function startRafIfNeeded() {
-    if (!isRafRunning && isHeroVisible) {
-      isRafRunning = true;
-      requestAnimationFrame(render3D);
-    }
-  }
-
-  // Hero Visibility Observer
-  if ('IntersectionObserver' in window && heroTrack) {
-    const heroObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        isHeroVisible = entry.isIntersecting;
-        if (isHeroVisible) {
-          startRafIfNeeded();
-        }
-      });
-    }, { threshold: 0.01 });
-
-    heroObserver.observe(heroTrack);
-  }
-
-  window.addEventListener('scroll', () => {
-    const newY = window.scrollY || window.pageYOffset || 0;
-    scrollDeltaY = newY - lastScrollY;
-    targetScrollY = newY;
-    lastScrollY = newY;
-
-    if (newY <= heroScrollDistance + 150) {
-      isHeroVisible = true;
-      startRafIfNeeded();
-    }
-  }, { passive: true });
-
-  startRafIfNeeded();
+  requestAnimationFrame(renderLoop);
 });

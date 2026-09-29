@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>2026 Chinese Culture Festival – Harvest Moon Celebration | Miami, FL</title>
   <meta name="description" content="Annual Chinese Culture Festival celebrating the Harvest Moon with music, martial arts, performances, and living traditions at MDC Wolfson Campus in Miami, FL.">
@@ -20,7 +20,7 @@
   <!-- External Stylesheet (Relative path for GitHub Pages compatibility) -->
   <link rel="stylesheet" href="./style.css">
 
-  <!-- Embedded Core Hero Styles (Zero-Dependency fallback for GitHub Pages & Static Hosts) -->
+  <!-- Embedded Core Hero Styles (Locked Viewport & Zero-Dependency Fallback) -->
   <style>
     * {
       box-sizing: border-box;
@@ -29,47 +29,73 @@
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    html {
-      background-color: #091212;
-      color-scheme: dark;
-    }
-
-    body {
-      background: #091212;
-      color: #FAF9F6;
+    html, body {
       width: 100%;
-      min-height: 100vh;
-      overflow-x: clip;
-      perspective: 1400px;
-    }
-
-    /* Hero Scroll-Locked Stage Track (200dvh for Scroll Parallax) */
-    #heroScrollTrack {
-      position: relative;
-      width: 100%;
-      height: 200dvh;
-      min-height: 200dvh;
-    }
-
-    /* Hero Section Locked to Viewport */
-    #heroSection {
-      position: sticky;
-      top: 0;
-      width: 100%;
+      height: 100%;
       height: 100vh;
       height: 100dvh;
-      height: 100svh;
-      min-height: 100dvh;
-      max-height: 100dvh;
+      margin: 0;
+      padding: 0;
       overflow: hidden;
-      perspective: 1000px;
-      background: linear-gradient(90deg, #091212 0%, #142220 50%, #091212 100%);
+      position: fixed;
+      inset: 0;
+      background-color: #143230;
+      color: #FAF9F6;
+      overscroll-behavior: none;
+      -webkit-overflow-scrolling: auto;
+      touch-action: none;
+    }
+
+    /* Hero Stage Permanently Locked to Viewport */
+    #heroScrollTrack {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+    }
+
+    #heroSection {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+      background: #143230 linear-gradient(180deg, #18413e 0%, #102a28 60%, #091212 100%);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       align-items: center;
       z-index: 20;
       --p: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+
+    /* Hardware-Accelerated Static Banner Layer */
+    #bannerWrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      pointer-events: none;
+      overflow: hidden;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
+    }
+
+    #bannerImg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: bottom center;
     }
 
     /* Elevated Moon & Hero Positioning Metrics */
@@ -93,8 +119,14 @@
         calc(var(--p, 0) * 12vh),
         0
       ) scale(calc(1 - var(--p, 0) * 0.32));
+      -webkit-transform: translate3d(
+        calc(-50% - var(--p, 0) * 26vw),
+        calc(var(--p, 0) * 12vh),
+        0
+      ) scale(calc(1 - var(--p, 0) * 0.32));
       will-change: transform;
       backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
 
     #lunarAmbientGlow {
@@ -103,9 +135,15 @@
         calc(var(--p, 0) * 12vh),
         0
       ) scale(calc(1 - var(--p, 0) * 0.18));
+      -webkit-transform: translate3d(
+        calc(-50% - var(--p, 0) * 26vw),
+        calc(var(--p, 0) * 12vh),
+        0
+      ) scale(calc(1 - var(--p, 0) * 0.18));
       opacity: calc(0.24 - var(--p, 0) * 0.10);
       will-change: transform, opacity;
       backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
 
     #midgroundWrapper {
@@ -114,33 +152,35 @@
         0,
         0
       );
+      -webkit-transform: translate3d(
+        calc(clamp(30px, 16vw, 430px) + var(--p, 0) * 30vw),
+        0,
+        0
+      );
       will-change: transform;
       backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
 
     #foregroundWrapper {
       transform: translate3d(0, 0, calc(var(--p, 0) * 100px)) scale(calc(1 + var(--p, 0) * 0.06));
+      -webkit-transform: translate3d(0, 0, calc(var(--p, 0) * 100px)) scale(calc(1 + var(--p, 0) * 0.06));
       transform-origin: bottom center;
+      -webkit-transform-origin: bottom center;
       opacity: 1 !important;
       will-change: transform;
       backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
 
     #heroTitleWrapper {
       top: var(--hero-title-top, clamp(160px, 34dvh, 340px));
       transform: translate3d(0, calc(-1 * var(--p, 0) * 60px), 0) scale(calc(1 - var(--p, 0) * 0.08));
+      -webkit-transform: translate3d(0, calc(-1 * var(--p, 0) * 60px), 0) scale(calc(1 - var(--p, 0) * 0.08));
       opacity: calc(1 - var(--p, 0) * 2.2);
       will-change: transform, opacity;
       backface-visibility: hidden;
-    }
-
-    /* Fast Smooth Snapping State in CSS */
-    #heroSection.hero-snapping #moonWrapper,
-    #heroSection.hero-snapping #lunarAmbientGlow,
-    #heroSection.hero-snapping #midgroundWrapper,
-    #heroSection.hero-snapping #foregroundWrapper,
-    #heroSection.hero-snapping #heroTitleWrapper {
-      transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      -webkit-backface-visibility: hidden;
     }
 
     /* Ambient Celestial Glow */
@@ -162,9 +202,9 @@
     .top-sky-mist {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 50% 15%, transparent 35%, rgba(10, 32, 30, 0.5) 85%, rgba(6, 20, 19, 0.8) 100%);
+      background: radial-gradient(circle at 50% 15%, transparent 35%, rgba(10, 32, 30, 0.4) 85%, rgba(6, 20, 19, 0.6) 100%);
       pointer-events: none;
-      z-index: 6;
+      z-index: 12;
     }
 
     /* Luminous Champagne Gold Display Typography */
@@ -205,10 +245,10 @@
   </style>
 </head>
 
-<body class="w-full min-h-screen relative antialiased selection:bg-[#DFC18A] selection:text-[#121212] bg-[#091212] text-[#FAF9F6]">
+<body class="w-full h-full relative antialiased selection:bg-[#DFC18A] selection:text-[#121212] bg-[#143230] text-[#FAF9F6]">
 
   <!-- =========================================================
-       HERO SCROLL-LOCKED STAGE (Frame-by-Frame Scroll-Driven Animation)
+       HERO LOCKED STAGE (100% Locked Viewport)
        ========================================================= -->
   <div id="heroScrollTrack">
     <section id="heroSection" aria-label="Harvest Moon Celebration Hero">
@@ -285,8 +325,8 @@
           alt="Festival Sky and Mountain Banner" 
           class="w-full h-full object-cover object-bottom block select-none pointer-events-none"
           draggable="false"
+          loading="eager"
           fetchpriority="high"
-          decoding="async"
         >
       </div>
 
@@ -294,7 +334,7 @@
       <div id="theatricalStage" class="absolute inset-0 w-full h-full flex justify-center items-end pointer-events-none overflow-visible z-20">
         <div class="relative w-full h-full flex justify-center items-end">
 
-          <!-- CELESTIAL MOON (Scales to Central on Scroll) -->
+          <!-- CELESTIAL MOON (Scales to Central on Interaction) -->
           <div 
             id="moonWrapper" 
             class="layer-3d absolute left-1/2 -translate-x-1/2 z-20 flex justify-center items-center pointer-events-none"
@@ -306,12 +346,12 @@
               alt="Harvest Moon" 
               class="w-[28vw] h-[28vw] max-w-[245px] max-h-[245px] min-w-[125px] min-h-[125px] object-contain select-none pointer-events-none moon-radiance drop-shadow-[0_0_40px_rgba(254,242,216,0.7)] will-change-transform"
               draggable="false" 
+              loading="eager"
               fetchpriority="high"
-              decoding="async"
             />
           </div>
 
-          <!-- MIDGROUND MOUNTAINS (Shifts Offset to Right on Scroll) -->
+          <!-- MIDGROUND MOUNTAINS (Shifts Offset to Right on Interaction) -->
           <div 
             id="midgroundWrapper" 
             class="layer-3d absolute inset-x-0 bottom-0 w-full flex justify-center items-end leading-none z-[25] pointer-events-none select-none will-change-transform"
@@ -323,8 +363,8 @@
               alt="Midground Scenery" 
               class="block align-bottom select-none pointer-events-none will-change-transform"
               draggable="false" 
+              loading="eager"
               fetchpriority="high"
-              decoding="async"
               style="width: 50%; max-width: 50%; height: auto; transform-origin: bottom center; filter: drop-shadow(0 10px 24px rgba(4, 18, 17, 0.7));"
             />
           </div>
@@ -344,8 +384,8 @@
           alt="Festival Foreground People & Clouds" 
           class="w-full min-w-full h-auto block align-bottom select-none pointer-events-none will-change-transform"
           draggable="false" 
+          loading="eager"
           fetchpriority="high"
-          decoding="async"
           style="transform: scale(1.08); transform-origin: bottom center; filter: drop-shadow(0 -8px 24px rgba(4, 18, 17, 0.6)); opacity: 1;"
         >
       </div>

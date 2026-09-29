@@ -10,47 +10,73 @@
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-html {
-  background-color: #091212;
-  color-scheme: dark;
-}
-
-body {
-  background: #091212;
-  color: #FAF9F6;
+html, body {
   width: 100%;
-  min-height: 100vh;
-  overflow-x: clip;
-  perspective: 1400px;
-}
-
-/* Hero Scroll-Locked Stage Track (Calibrated 200dvh Budget) */
-#heroScrollTrack {
-  position: relative;
-  width: 100%;
-  height: 200dvh;
-  min-height: 200dvh;
-}
-
-/* Hero Section Locked to Viewport */
-#heroSection {
-  position: sticky;
-  top: 0;
-  width: 100%;
+  height: 100%;
   height: 100vh;
   height: 100dvh;
-  height: 100svh;
-  min-height: 100dvh;
-  max-height: 100dvh;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
-  perspective: 1000px;
-  background: linear-gradient(90deg, #091212 0%, #142220 50%, #091212 100%);
+  position: fixed;
+  inset: 0;
+  background-color: #143230;
+  color: #FAF9F6;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: auto;
+  touch-action: none;
+}
+
+/* Hero Stage Locked to Viewport */
+#heroScrollTrack {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+#heroSection {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: #143230 linear-gradient(180deg, #18413e 0%, #102a28 60%, #091212 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   z-index: 20;
   --p: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* Hardware-Accelerated Static Banner Layer */
+#bannerWrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+#bannerImg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: bottom center;
 }
 
 /* =========================================================
@@ -58,13 +84,20 @@ body {
    Driven smoothly via CSS custom properties & GPU transforms
    ========================================================= */
 #moonWrapper {
+  bottom: var(--moon-bottom-offset, clamp(480px, 70dvh, 82dvh));
   transform: translate3d(
+    calc(-50% - var(--p, 0) * 26vw),
+    calc(var(--p, 0) * 12vh),
+    0
+  ) scale(calc(1 - var(--p, 0) * 0.32));
+  -webkit-transform: translate3d(
     calc(-50% - var(--p, 0) * 26vw),
     calc(var(--p, 0) * 12vh),
     0
   ) scale(calc(1 - var(--p, 0) * 0.32));
   will-change: transform;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 #lunarAmbientGlow {
@@ -73,13 +106,15 @@ body {
     calc(var(--p, 0) * 12vh),
     0
   ) scale(calc(1 - var(--p, 0) * 0.18));
+  -webkit-transform: translate3d(
+    calc(-50% - var(--p, 0) * 26vw),
+    calc(var(--p, 0) * 12vh),
+    0
+  ) scale(calc(1 - var(--p, 0) * 0.18));
   opacity: calc(0.24 - var(--p, 0) * 0.10);
   will-change: transform, opacity;
   backface-visibility: hidden;
-}
-
-#bannerWrapper {
-  /* Full viewport fill & bottom anchored */
+  -webkit-backface-visibility: hidden;
 }
 
 #midgroundWrapper {
@@ -88,48 +123,35 @@ body {
     0,
     0
   );
+  -webkit-transform: translate3d(
+    calc(clamp(30px, 16vw, 430px) + var(--p, 0) * 30vw),
+    0,
+    0
+  );
   will-change: transform;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 #foregroundWrapper {
   transform: translate3d(0, 0, calc(var(--p, 0) * 100px)) scale(calc(1 + var(--p, 0) * 0.06));
+  -webkit-transform: translate3d(0, 0, calc(var(--p, 0) * 100px)) scale(calc(1 + var(--p, 0) * 0.06));
   transform-origin: bottom center;
+  -webkit-transform-origin: bottom center;
   opacity: 1 !important;
   will-change: transform;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 #heroTitleWrapper {
+  top: var(--hero-title-top, clamp(160px, 34dvh, 340px));
   transform: translate3d(0, calc(-1 * var(--p, 0) * 60px), 0) scale(calc(1 - var(--p, 0) * 0.08));
+  -webkit-transform: translate3d(0, calc(-1 * var(--p, 0) * 60px), 0) scale(calc(1 - var(--p, 0) * 0.08));
   opacity: calc(1 - var(--p, 0) * 2.2);
   will-change: transform, opacity;
   backface-visibility: hidden;
-}
-
-/* Fast Smooth Snapping State in CSS */
-#heroSection.hero-snapping #moonWrapper,
-#heroSection.hero-snapping #lunarAmbientGlow,
-#heroSection.hero-snapping #midgroundWrapper,
-#heroSection.hero-snapping #foregroundWrapper,
-#heroSection.hero-snapping #heroTitleWrapper {
-  transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  #moonWrapper,
-  #lunarAmbientGlow,
-  #midgroundWrapper,
-  #foregroundWrapper,
-  #heroTitleWrapper {
-    transform: none !important;
-    transition: none !important;
-  }
-}
-
-/* Fluid Safe-Area Notch Clearance for Mobile Devices */
-.hero-safe-top {
-  padding-top: max(calc(env(safe-area-inset-top, 0px) + 1.25rem), clamp(4.25rem, 8.5vh, 5.5rem));
+  -webkit-backface-visibility: hidden;
 }
 
 /* Elevated Moon & Hero Positioning */
@@ -143,10 +165,6 @@ body {
     --moon-bottom-offset: clamp(420px, 68dvh, 78dvh);
     --hero-title-top: clamp(110px, 25dvh, 230px);
   }
-}
-
-#moonWrapper {
-  bottom: var(--moon-bottom-offset);
 }
 
 /* Ambient Celestial Glow */
@@ -175,7 +193,7 @@ body {
 
 /* Luminous Champagne Gold Display Typography */
 .hero-display-title {
-  font-family: 'Shippori Mincho', serif;
+  font-family: 'Shippori Mincho', 'Noto Serif SC', serif;
   font-size: clamp(2.15rem, 5.8vw, 4.85rem);
   line-height: 0.98;
   letter-spacing: clamp(0.04em, 0.7vw, 0.09em);
@@ -196,4 +214,15 @@ body {
           drop-shadow(0 0 40px rgba(244, 227, 194, 0.25));
   word-break: normal;
   hyphens: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #moonWrapper,
+  #lunarAmbientGlow,
+  #midgroundWrapper,
+  #foregroundWrapper,
+  #heroTitleWrapper {
+    transform: none !important;
+    transition: none !important;
+  }
 }
