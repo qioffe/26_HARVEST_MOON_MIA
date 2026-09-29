@@ -1,0 +1,6 @@
+{
+  "name": "2026 Chinese Culture Festival – Harvest Moon Celebration",
+  "description": "Annual Chinese Culture Festival celebrating the Harvest Moon with music, martial arts, performances, and living traditions at MDC Wolfson Campus in Miami, FL.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

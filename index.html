@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>2026 Chinese Culture Festival – Harvest Moon Celebration | Miami, FL</title>
+  <meta name="description" content="Annual Chinese Culture Festival celebrating the Harvest Moon with music, martial arts, performances, and living traditions at MDC Wolfson Campus in Miami, FL.">
+  <meta property="og:title" content="2026 Chinese Culture Festival – Harvest Moon Celebration | Miami, FL">
+  <meta property="og:description" content="Annual Chinese Culture Festival celebrating the Harvest Moon with music, martial arts, performances, and living traditions at MDC Wolfson Campus in Miami, FL.">
+
+  <!-- Google Fonts: Noto Serif SC + Cinzel + JetBrains Mono + Shippori Mincho + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="w-full min-h-screen relative antialiased selection:bg-[#DFC18A] selection:text-[#121212] bg-[#091212] text-[#FAF9F6]">
+
+  <!-- =========================================================
+       HERO SCROLL-LOCKED STAGE (Frame-by-Frame Scroll-Driven Animation)
+       ========================================================= -->
+  <div id="heroScrollTrack">
+    <section id="heroSection" aria-label="Harvest Moon Celebration Hero">
+
+      <!-- Atmospheric Sky Vignette & Ambient Glow -->
+      <div class="top-sky-mist"></div>
+      <div class="lunar-ambient-glow" id="lunarAmbientGlow"></div>
+
+      <!-- Floating Ambient Stardust Canvas -->
+      <canvas id="ambientDustCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-30"></canvas>
+
+      <!-- HERO TITLE, METADATA & CTAs (z-40) Pro Editorial Lockup at 38dvh -->
+      <div 
+        id="heroTitleWrapper" 
+        class="layer-3d absolute left-0 right-0 w-full px-4 sm:px-8 z-40 flex flex-col items-center select-none"
+        style="top: var(--hero-title-top);"
+      >
+        <!-- 1. CULTURAL MASTHEAD (Inverted Weight Law - Light 300) -->
+        <div class="mb-3 flex items-center justify-center gap-3">
+          <span class="w-6 sm:w-10 h-[1px] bg-gradient-to-r from-transparent via-[#DFC18A]/50 to-transparent"></span>
+          <span class="font-['Noto_Serif_SC'] text-xs sm:text-[13px] md:text-sm font-light text-[#FAF9F6] tracking-[0.42em] pl-[0.42em] drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)] opacity-95">
+            2026 迈阿密中国文化节
+          </span>
+          <span class="w-6 sm:w-10 h-[1px] bg-gradient-to-r from-transparent via-[#DFC18A]/50 to-transparent"></span>
+        </div>
+
+        <!-- 2. MAIN HERO TITLE: Chiseled Classical Display Roman & Songti -->
+        <h1 class="hero-display-title w-full max-w-4xl uppercase font-bold tracking-tight mb-3 sm:mb-3.5">
+          Harvest Moon<br>Celebration
+        </h1>
+
+        <!-- 3. DATE, TIME & VENUE STACK -->
+        <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-[11px] sm:text-xs md:text-[13px] font-medium tracking-[0.20em] text-[#FAF9F6] uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.75)] mb-4 sm:mb-5">
+          <span class="text-[#FAF9F6]">Saturday, October 3, 2026</span>
+          <span class="text-[#C2A676] text-[10px]">•</span>
+          <span class="text-[#FAF9F6]/90">1:00 PM – 5:00 PM EDT</span>
+          <span class="text-[#C2A676] text-[10px]">•</span>
+          <span class="text-[#DFC18A] flex items-center gap-1.5 font-normal">
+            <svg class="w-3.5 h-3.5 text-[#DFC18A] inline-block shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            MDC Wolfson Campus · Miami
+          </span>
+        </div>
+
+        <!-- 4. CALL TO ACTION: Gilded Gold Leaf / Deep Jade Lockup (No Red) -->
+        <div class="pointer-events-auto flex flex-col items-center">
+          <a 
+            id="heroTicketsCta"
+            href="https://www.eventbrite.com/e/2026-chinese-culture-festival-harvest-moon-celebration-tickets-1998330301726" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="group relative inline-flex items-center gap-2.5 px-8 sm:px-10 py-2.5 sm:py-3 rounded-full text-xs font-bold uppercase tracking-[0.22em] text-[#0d2c2a] bg-gradient-to-r from-[#FFF8E7] via-[#DFC18A] to-[#C2A676] hover:from-white hover:to-[#DFC18A] shadow-[0_6px_28px_rgba(0,0,0,0.45),0_0_24px_rgba(223,193,138,0.45)] hover:shadow-[0_8px_36px_rgba(223,193,138,0.7)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-[#0d2c2a]"></span>
+            <span>Get Eventbrite Tickets</span>
+            <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform text-[#0d2c2a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- BANNER PNG: Full Viewport Fill & Bottom Anchored (z-10, Static) -->
+      <div 
+        id="bannerWrapper" 
+        class="absolute inset-0 w-full h-full flex justify-center items-end leading-none z-10 pointer-events-none select-none overflow-hidden" 
+        style="line-height: 0;"
+      >
+        <img 
+          id="bannerImg" 
+          src="https://raw.githubusercontent.com/qioffe/Miami_Chinese_Culture_Festival/main/landing/banner.png" 
+          alt="Festival Sky and Mountain Banner" 
+          class="w-full h-full object-cover object-bottom block select-none pointer-events-none"
+          draggable="false"
+          fetchpriority="high"
+          decoding="async"
+        >
+      </div>
+
+      <!-- UNIFIED THEATRICAL STAGE (Moon & Midground Mountains) -->
+      <div id="theatricalStage" class="absolute inset-0 w-full h-full flex justify-center items-end pointer-events-none overflow-visible z-20">
+        <div class="relative w-full h-full flex justify-center items-end">
+
+          <!-- CELESTIAL MOON (Scales to Central on Scroll) -->
+          <div 
+            id="moonWrapper" 
+            class="layer-3d absolute left-1/2 -translate-x-1/2 z-20 flex justify-center items-center pointer-events-none"
+          >
+            <img 
+              id="moonElement" 
+              src="https://raw.githubusercontent.com/qioffe/Miami_Chinese_Culture_Festival/main/landing/moon.png" 
+              alt="Harvest Moon" 
+              class="w-[28vw] h-[28vw] max-w-[245px] max-h-[245px] min-w-[125px] min-h-[125px] object-contain select-none pointer-events-none moon-radiance drop-shadow-[0_0_40px_rgba(254,242,216,0.7)] will-change-transform"
+              draggable="false" 
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+
+          <!-- MIDGROUND MOUNTAINS (Shifts Offset to Right on Scroll) -->
+          <div 
+            id="midgroundWrapper" 
+            class="layer-3d absolute inset-x-0 bottom-0 w-full flex justify-center items-end leading-none z-[25] pointer-events-none select-none will-change-transform"
+            style="line-height: 0;"
+          >
+            <img 
+              id="midgroundImg" 
+              src="https://raw.githubusercontent.com/qioffe/Miami_Chinese_Culture_Festival/main/landing/midground.png" 
+              alt="Midground Scenery" 
+              class="block align-bottom select-none pointer-events-none will-change-transform"
+              draggable="false" 
+              fetchpriority="high"
+              decoding="async"
+              style="width: 50%; max-width: 50%; height: auto; transform-origin: bottom center; filter: drop-shadow(0 10px 24px rgba(4, 18, 17, 0.7));"
+            />
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FOREGROUND CLOUDS & FIGURES (Full Clarity, Z-Axis Parallax Offset, Non-fading) -->
+      <div 
+        id="foregroundWrapper" 
+        class="layer-3d absolute inset-x-0 bottom-0 w-full flex justify-center items-end pointer-events-none z-40 origin-bottom will-change-transform"
+        style="transform-origin: bottom center; line-height: 0;"
+      >
+        <img 
+          id="foregroundImg" 
+          src="https://raw.githubusercontent.com/qioffe/Miami_Chinese_Culture_Festival/main/landing/foreground.png" 
+          alt="Festival Foreground People & Clouds" 
+          class="w-full min-w-full h-auto block align-bottom select-none pointer-events-none will-change-transform"
+          draggable="false" 
+          fetchpriority="high"
+          decoding="async"
+          style="transform: scale(1.08); transform-origin: bottom center; filter: drop-shadow(0 -8px 24px rgba(4, 18, 17, 0.6)); opacity: 1;"
+        >
+      </div>
+
+    </section>
+  </div>
+
+  <!-- External Script -->
+  <script src="/script.js"></script>
+</body>
+</html>
