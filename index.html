@@ -17,8 +17,192 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- External Stylesheet -->
-  <link rel="stylesheet" href="/style.css">
+  <!-- External Stylesheet (Relative path for GitHub Pages compatibility) -->
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- Embedded Core Hero Styles (Zero-Dependency fallback for GitHub Pages & Static Hosts) -->
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    html {
+      background-color: #091212;
+      color-scheme: dark;
+    }
+
+    body {
+      background: #091212;
+      color: #FAF9F6;
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: clip;
+      perspective: 1400px;
+    }
+
+    /* Hero Scroll-Locked Stage Track (200dvh for Scroll Parallax) */
+    #heroScrollTrack {
+      position: relative;
+      width: 100%;
+      height: 200dvh;
+      min-height: 200dvh;
+    }
+
+    /* Hero Section Locked to Viewport */
+    #heroSection {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      height: 100svh;
+      min-height: 100dvh;
+      max-height: 100dvh;
+      overflow: hidden;
+      perspective: 1000px;
+      background: linear-gradient(90deg, #091212 0%, #142220 50%, #091212 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      z-index: 20;
+      --p: 0;
+    }
+
+    /* Elevated Moon & Hero Positioning Metrics */
+    :root {
+      --moon-bottom-offset: clamp(520px, 74dvh, 85dvh);
+      --hero-title-top: clamp(180px, 38dvh, 380px);
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --moon-bottom-offset: clamp(420px, 68dvh, 78dvh);
+        --hero-title-top: clamp(110px, 25dvh, 230px);
+      }
+    }
+
+    /* Pure CSS Parallax Layers */
+    #moonWrapper {
+      bottom: var(--moon-bottom-offset, clamp(480px, 70dvh, 82dvh));
+      transform: translate3d(
+        calc(-50% - var(--p, 0) * 26vw),
+        calc(var(--p, 0) * 12vh),
+        0
+      ) scale(calc(1 - var(--p, 0) * 0.32));
+      will-change: transform;
+      backface-visibility: hidden;
+    }
+
+    #lunarAmbientGlow {
+      transform: translate3d(
+        calc(-50% - var(--p, 0) * 26vw),
+        calc(var(--p, 0) * 12vh),
+        0
+      ) scale(calc(1 - var(--p, 0) * 0.18));
+      opacity: calc(0.24 - var(--p, 0) * 0.10);
+      will-change: transform, opacity;
+      backface-visibility: hidden;
+    }
+
+    #midgroundWrapper {
+      transform: translate3d(
+        calc(clamp(30px, 16vw, 430px) + var(--p, 0) * 30vw),
+        0,
+        0
+      );
+      will-change: transform;
+      backface-visibility: hidden;
+    }
+
+    #foregroundWrapper {
+      transform: translate3d(0, 0, calc(var(--p, 0) * 100px)) scale(calc(1 + var(--p, 0) * 0.06));
+      transform-origin: bottom center;
+      opacity: 1 !important;
+      will-change: transform;
+      backface-visibility: hidden;
+    }
+
+    #heroTitleWrapper {
+      top: var(--hero-title-top, clamp(160px, 34dvh, 340px));
+      transform: translate3d(0, calc(-1 * var(--p, 0) * 60px), 0) scale(calc(1 - var(--p, 0) * 0.08));
+      opacity: calc(1 - var(--p, 0) * 2.2);
+      will-change: transform, opacity;
+      backface-visibility: hidden;
+    }
+
+    /* Fast Smooth Snapping State in CSS */
+    #heroSection.hero-snapping #moonWrapper,
+    #heroSection.hero-snapping #lunarAmbientGlow,
+    #heroSection.hero-snapping #midgroundWrapper,
+    #heroSection.hero-snapping #foregroundWrapper,
+    #heroSection.hero-snapping #heroTitleWrapper {
+      transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    /* Ambient Celestial Glow */
+    .lunar-ambient-glow {
+      position: absolute;
+      top: clamp(10px, 3vh, 50px);
+      left: 50%;
+      transform: translateX(-50%);
+      width: 65vw;
+      height: 65vw;
+      max-width: 580px;
+      max-height: 580px;
+      background: radial-gradient(circle, rgba(254, 240, 205, 0.24) 0%, rgba(244, 227, 194, 0.08) 45%, transparent 70%);
+      filter: blur(40px);
+      pointer-events: none;
+      z-index: 15;
+    }
+
+    .top-sky-mist {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 15%, transparent 35%, rgba(10, 32, 30, 0.5) 85%, rgba(6, 20, 19, 0.8) 100%);
+      pointer-events: none;
+      z-index: 6;
+    }
+
+    /* Luminous Champagne Gold Display Typography */
+    .hero-display-title {
+      font-family: 'Shippori Mincho', 'Noto Serif SC', serif;
+      font-size: clamp(2.15rem, 5.8vw, 4.85rem);
+      line-height: 0.98;
+      letter-spacing: clamp(0.04em, 0.7vw, 0.09em);
+      background: linear-gradient(
+        155deg,
+        #ffffff 0%,
+        #fef5e1 26%,
+        #edd7a6 58%,
+        #c8aa6a 86%,
+        #a6833c 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: #f7e6c4;
+      text-align: center;
+      filter: drop-shadow(0 4px 18px rgba(5, 18, 17, 0.75)) 
+              drop-shadow(0 0 40px rgba(244, 227, 194, 0.25));
+      word-break: normal;
+      hyphens: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #moonWrapper,
+      #lunarAmbientGlow,
+      #midgroundWrapper,
+      #foregroundWrapper,
+      #heroTitleWrapper {
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
 
 <body class="w-full min-h-screen relative antialiased selection:bg-[#DFC18A] selection:text-[#121212] bg-[#091212] text-[#FAF9F6]">
@@ -40,7 +224,7 @@
       <div 
         id="heroTitleWrapper" 
         class="layer-3d absolute left-0 right-0 w-full px-4 sm:px-8 z-40 flex flex-col items-center select-none"
-        style="top: var(--hero-title-top);"
+        style="top: var(--hero-title-top, clamp(160px, 34dvh, 340px));"
       >
         <!-- 1. CULTURAL MASTHEAD (Inverted Weight Law - Light 300) -->
         <div class="mb-3 flex items-center justify-center gap-3">
@@ -114,6 +298,7 @@
           <div 
             id="moonWrapper" 
             class="layer-3d absolute left-1/2 -translate-x-1/2 z-20 flex justify-center items-center pointer-events-none"
+            style="bottom: var(--moon-bottom-offset, clamp(480px, 70dvh, 82dvh));"
           >
             <img 
               id="moonElement" 
@@ -168,7 +353,7 @@
     </section>
   </div>
 
-  <!-- External Script -->
-  <script src="/script.js"></script>
+  <!-- External Script (Module & Relative path for Vite + GitHub Pages) -->
+  <script type="module" src="./script.js"></script>
 </body>
 </html>
