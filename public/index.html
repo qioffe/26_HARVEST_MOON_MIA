@@ -18,66 +18,11 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- External Stylesheet (Relative path for Vite + GitHub Pages) -->
-  <link rel="stylesheet" href="./style.css">
 
   <!-- Embedded Core Hero Styles for Instant Above-the-Fold Paint -->
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      height: 100vh;
-      height: 100dvh;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      position: fixed;
-      inset: 0;
-      background-color: #143230;
-      color: #FAF9F6;
-      overscroll-behavior: none;
-      -webkit-overflow-scrolling: auto;
-      touch-action: none;
-      user-select: none;
-      -webkit-user-select: none;
-    }
-
-    #heroScrollTrack {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      height: 100vh;
-      height: 100dvh;
-      overflow: hidden;
-      touch-action: none;
-    }
-
-    #heroSection {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      height: 100vh;
-      height: 100dvh;
-      overflow: hidden;
-      background: #143230 linear-gradient(180deg, #18413e 0%, #102a28 60%, #091212 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      z-index: 20;
-      --p: 0;
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-    }
-  </style>
+  <style>*{box-sizing:border-box;margin:0;padding:0;font-family:Plus Jakarta Sans,-apple-system,BlinkMacSystemFont,sans-serif}html,body{color:#faf9f6;overscroll-behavior:none;-webkit-overflow-scrolling:auto;touch-action:none;-webkit-user-select:none;user-select:none;background-color:#143230;width:100%;height:100dvh;margin:0;padding:0;position:fixed;inset:0;overflow:hidden}#heroScrollTrack{touch-action:none;width:100%;height:100dvh;position:fixed;inset:0;overflow:hidden}#heroSection{z-index:20;--p:0;background:#143230 linear-gradient(#18413e 0%,#102a28 60%,#091212 100%);flex-direction:column;justify-content:flex-end;align-items:center;width:100%;height:100dvh;display:flex;position:fixed;inset:0;overflow:hidden;transform:translate(0,0)}</style>
+  <script type="module" crossorigin src="./assets/index-CR13ZBeX.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BO4CCY4b.css">
 </head>
 
 <body class="w-full h-full relative antialiased selection:bg-[#DFC18A] selection:text-[#121212] bg-[#143230] text-[#FAF9F6]">
@@ -155,10 +100,10 @@
         class="absolute inset-0 w-full h-full z-10 pointer-events-none select-none overflow-hidden block"
       >
         <picture class="banner-picture w-full h-full block">
-          <source srcset="./landing/banner.webp" type="image/webp">
+          <source srcset="./assets/banner-DLiAMHKI.webp" type="image/webp">
           <img 
             id="bannerImg" 
-            src="./landing/banner.webp" 
+            src="./assets/banner-DLiAMHKI.webp" 
             onerror="if (!this.dataset.tried) { this.dataset.tried = '1'; this.src = './landing/banner.png'; } else if (this.dataset.tried === '1') { this.dataset.tried = '2'; this.src = 'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/banner.webp'; } else if (this.dataset.tried === '2') { this.dataset.tried = '3'; this.src = 'https://raw.githubusercontent.com/qioffe/Miami_Chinese_Culture_Festival/main/landing/banner.png'; }"
             alt="Festival Sky and Mountain Banner" 
             width="1672"
@@ -181,10 +126,10 @@
             class="layer-3d absolute left-1/2 z-20 flex justify-center items-center pointer-events-none"
           >
             <picture class="moon-picture block">
-              <source srcset="./landing/moon.webp" type="image/webp">
+              <source srcset="./assets/moon-DX8J28u2.webp" type="image/webp">
               <img 
                 id="moonElement" 
-                src="./landing/moon.webp" 
+                src="./assets/moon-DX8J28u2.webp" 
                 onerror="if (!this.dataset.tried) { this.dataset.tried = '1'; this.src = './landing/moon.png'; } else if (this.dataset.tried === '1') { this.dataset.tried = '2'; this.src = 'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/moon.webp'; } else if (this.dataset.tried === '2') { this.dataset.tried = '3'; this.src = 'https://raw.githubusercontent.com/qioffe/Miami_Chinese_Culture_Festival/main/landing/moon.png'; }"
                 alt="Harvest Moon" 
                 width="636"
@@ -203,10 +148,10 @@
             class="layer-3d absolute left-1/2 bottom-0 w-full flex justify-center items-end leading-none z-[25] pointer-events-none select-none will-change-transform"
           >
             <picture class="midground-picture block">
-              <source srcset="./landing/midground.webp" type="image/webp">
+              <source srcset="./assets/midground-CZKueHz5.webp" type="image/webp">
               <img 
                 id="midgroundImg" 
-                src="./landing/midground.webp" 
+                src="./assets/midground-CZKueHz5.webp" 
                 onerror="if (!this.dataset.tried) { this.dataset.tried = '1'; this.src = './landing/midground.png'; } else if (this.dataset.tried === '1') { this.dataset.tried = '2'; this.src = 'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/midground.webp'; } else if (this.dataset.tried === '2') { this.dataset.tried = '3'; this.src = 'https://raw.githubusercontent.com/qioffe/Miami_Chinese_Culture_Festival/main/landing/midground.png'; }"
                 alt="Midground Scenery" 
                 width="1528"
@@ -228,10 +173,10 @@
         class="layer-3d absolute inset-x-0 bottom-0 w-full flex justify-center items-end pointer-events-none z-40 origin-bottom will-change-transform"
       >
         <picture class="foreground-picture block w-full">
-          <source srcset="./landing/foreground.webp" type="image/webp">
+          <source srcset="./assets/foreground-CFgzOyzi.webp" type="image/webp">
           <img 
             id="foregroundImg" 
-            src="./landing/foreground.webp" 
+            src="./assets/foreground-CFgzOyzi.webp" 
             onerror="if (!this.dataset.tried) { this.dataset.tried = '1'; this.src = './landing/foreground.png'; } else if (this.dataset.tried === '1') { this.dataset.tried = '2'; this.src = 'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/foreground.webp'; } else if (this.dataset.tried === '2') { this.dataset.tried = '3'; this.src = 'https://raw.githubusercontent.com/qioffe/Miami_Chinese_Culture_Festival/main/landing/foreground.png'; }"
             alt="Festival Foreground People & Clouds" 
             width="2752"
@@ -248,6 +193,5 @@
   </div>
 
   <!-- External Script (Module & Relative path for Vite + GitHub Pages) -->
-  <script type="module" src="./script.js"></script>
 </body>
 </html>

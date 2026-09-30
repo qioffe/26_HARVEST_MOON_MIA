@@ -1,6 +1,6 @@
 /* =========================================================
    2026 CHINESE CULTURE FESTIVAL – HARVEST MOON CELEBRATION
-   Global CSS & Theme Variables
+   Global CSS & High-Fidelity Theatrical Styles
    ========================================================= */
 
 * {
@@ -25,9 +25,14 @@ html, body {
   overscroll-behavior: none;
   -webkit-overflow-scrolling: auto;
   touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-/* Hero Stage Locked to Viewport */
+/* =========================================================
+   HERO LOCKED STAGE (100% Locked Viewport)
+   ========================================================= */
+
 #heroScrollTrack {
   position: fixed;
   inset: 0;
@@ -36,6 +41,7 @@ html, body {
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
+  touch-action: none;
 }
 
 #heroSection {
@@ -66,12 +72,16 @@ html, body {
   z-index: 10;
   pointer-events: none;
   overflow: hidden;
+  display: block;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   will-change: transform;
 }
 
-#bannerImg {
+#bannerImg,
+.banner-picture img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   display: block;
@@ -80,52 +90,185 @@ html, body {
 }
 
 /* =========================================================
-   PURE CSS PARALLAX LAYERS & TRANSITIONS
-   Driven smoothly via CSS custom properties & GPU transforms
+   RESPONSIVE METRIC VARIABLES
    ========================================================= */
+
+:root {
+  --moon-top: clamp(24px, 4.2dvh, 48px);
+  --hero-title-top: clamp(210px, 24dvh, 260px);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --moon-top: clamp(16px, 2.8dvh, 28px);
+    --hero-title-top: clamp(135px, 17.2dvh, 160px);
+  }
+}
+
+/* =========================================================
+   JITTER-FREE SILKY GPU PARALLAX LAYERS
+   ========================================================= */
+
+/* Celestial Moon: Horizontally centered, shrunk, strictly elevated above Cultural Masthead */
 #moonWrapper {
-  bottom: var(--moon-bottom-offset, clamp(480px, 70dvh, 82dvh));
+  position: absolute;
+  left: 50%;
+  top: var(--moon-top);
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
   transform: translate3d(
-    calc(-50% - var(--p, 0) * 26vw),
-    calc(var(--p, 0) * 12vh),
+    calc(-50% - var(--p, 0) * 16vw),
+    calc(var(--p, 0) * 8vh),
     0
-  ) scale(calc(1 - var(--p, 0) * 0.32));
+  ) scale(calc(1 - var(--p, 0) * 0.15));
   -webkit-transform: translate3d(
-    calc(-50% - var(--p, 0) * 26vw),
-    calc(var(--p, 0) * 12vh),
+    calc(-50% - var(--p, 0) * 16vw),
+    calc(var(--p, 0) * 8vh),
     0
-  ) scale(calc(1 - var(--p, 0) * 0.32));
+  ) scale(calc(1 - var(--p, 0) * 0.15));
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 
+#moonElement,
+.moon-picture img {
+  width: clamp(96px, 11vw, 142px);
+  height: clamp(96px, 11vw, 142px);
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 24px rgba(254, 242, 216, 0.65));
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  contain: paint;
+}
+
+/* Lunar Ambient Atmospheric Glow */
 #lunarAmbientGlow {
+  position: absolute;
+  top: calc(var(--moon-top) - clamp(20px, 4vh, 45px));
+  left: 50%;
+  width: clamp(200px, 32vw, 340px);
+  height: clamp(200px, 32vw, 340px);
+  max-width: 360px;
+  max-height: 360px;
+  background: radial-gradient(circle, rgba(254, 240, 205, 0.20) 0%, rgba(244, 227, 194, 0.06) 45%, transparent 70%);
+  filter: blur(28px);
+  pointer-events: none;
+  z-index: 15;
   transform: translate3d(
-    calc(-50% - var(--p, 0) * 26vw),
-    calc(var(--p, 0) * 12vh),
+    calc(-50% - var(--p, 0) * 16vw),
+    calc(var(--p, 0) * 8vh),
     0
-  ) scale(calc(1 - var(--p, 0) * 0.18));
+  ) scale(calc(1 - var(--p, 0) * 0.12));
   -webkit-transform: translate3d(
-    calc(-50% - var(--p, 0) * 26vw),
-    calc(var(--p, 0) * 12vh),
+    calc(-50% - var(--p, 0) * 16vw),
+    calc(var(--p, 0) * 8vh),
     0
-  ) scale(calc(1 - var(--p, 0) * 0.18));
+  ) scale(calc(1 - var(--p, 0) * 0.12));
   opacity: calc(0.24 - var(--p, 0) * 0.10);
   will-change: transform, opacity;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 
+@media (max-width: 640px) {
+  #moonWrapper {
+    transform: translate3d(
+      calc(-50% - var(--p, 0) * 16vw),
+      calc(var(--p, 0) * 8vh),
+      0
+    ) scale(calc(1 - var(--p, 0) * 0.15));
+    -webkit-transform: translate3d(
+      calc(-50% - var(--p, 0) * 16vw),
+      calc(var(--p, 0) * 8vh),
+      0
+    ) scale(calc(1 - var(--p, 0) * 0.15));
+  }
+
+  #moonElement,
+  .moon-picture img {
+    width: clamp(72px, 19vw, 92px);
+    height: clamp(72px, 19vw, 92px);
+    filter: drop-shadow(0 0 18px rgba(254, 242, 216, 0.60));
+  }
+
+  #lunarAmbientGlow {
+    top: calc(var(--moon-top) - 12px);
+    width: clamp(160px, 48vw, 240px);
+    height: clamp(160px, 48vw, 240px);
+    transform: translate3d(
+      calc(-50% - var(--p, 0) * 16vw),
+      calc(var(--p, 0) * 8vh),
+      0
+    ) scale(calc(1 - var(--p, 0) * 0.12));
+    -webkit-transform: translate3d(
+      calc(-50% - var(--p, 0) * 16vw),
+      calc(var(--p, 0) * 8vh),
+      0
+    ) scale(calc(1 - var(--p, 0) * 0.12));
+  }
+}
+
+/* Luminous Gilded Cultural Masthead: Imperial Gold Lacquer & Cinnabar Warmth */
+.cultural-masthead-text {
+  font-family: 'Noto Serif SC', 'Shippori Mincho', serif;
+  font-weight: 600;
+  letter-spacing: clamp(0.24em, 0.65vw, 0.38em);
+  padding-left: clamp(0.24em, 0.65vw, 0.38em);
+  background: linear-gradient(
+    180deg,
+    #FFFFFF 0%,
+    #FFF8E7 20%,
+    #F7D892 50%,
+    #E8BF6D 82%,
+    #C79A40 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #F7D892;
+  filter: drop-shadow(0 2px 8px rgba(2, 12, 11, 0.95)) drop-shadow(0 0 12px rgba(247, 216, 146, 0.35));
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.top-sky-mist {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(to bottom, rgba(5, 14, 14, 0.45) 0%, transparent 22%),
+    radial-gradient(circle at 50% 15%, transparent 35%, rgba(10, 32, 30, 0.35) 85%, rgba(6, 20, 19, 0.55) 100%);
+  pointer-events: none;
+  z-index: 12;
+}
+
+/* Midground Mountains: Gracefully scaled panoramic ridge offset to the right */
 #midgroundWrapper {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  leading-none: 1;
+  z-index: 25;
+  pointer-events: none;
   transform: translate3d(
-    calc(clamp(30px, 16vw, 430px) + var(--p, 0) * 30vw),
-    0,
+    calc(-50% + clamp(65px, 8.5vw, 155px) + var(--p, 0) * 5vw),
+    calc(var(--p, 0) * 6px),
     0
   );
   -webkit-transform: translate3d(
-    calc(clamp(30px, 16vw, 430px) + var(--p, 0) * 30vw),
-    0,
+    calc(-50% + clamp(65px, 8.5vw, 155px) + var(--p, 0) * 5vw),
+    calc(var(--p, 0) * 6px),
     0
   );
   will-change: transform;
@@ -133,70 +276,108 @@ html, body {
   -webkit-backface-visibility: hidden;
 }
 
+#midgroundImg,
+.midground-picture img {
+  width: clamp(460px, 48vw, 860px);
+  max-width: 72vw;
+  height: auto;
+  display: block;
+  transform-origin: bottom center;
+  filter: drop-shadow(0 8px 20px rgba(4, 18, 17, 0.60));
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  contain: paint;
+}
+
+@media (max-width: 640px) {
+  #midgroundWrapper {
+    transform: translate3d(
+      calc(-50% + clamp(36px, 10vw, 54px) + var(--p, 0) * 5vw),
+      calc(var(--p, 0) * 6px),
+      0
+    );
+    -webkit-transform: translate3d(
+      calc(-50% + clamp(36px, 10vw, 54px) + var(--p, 0) * 5vw),
+      calc(var(--p, 0) * 6px),
+      0
+    );
+  }
+
+  #midgroundImg,
+  .midground-picture img {
+    width: clamp(280px, 76vw, 420px);
+    max-width: none;
+  }
+}
+
+/* Foreground Clouds & Figures: Edge-to-edge full clarity, smooth micro-scale */
 #foregroundWrapper {
-  transform: translate3d(0, 0, calc(var(--p, 0) * 100px)) scale(calc(1 + var(--p, 0) * 0.06));
-  -webkit-transform: translate3d(0, 0, calc(var(--p, 0) * 100px)) scale(calc(1 + var(--p, 0) * 0.06));
+  position: absolute;
+  inset-x: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  pointer-events: none;
+  z-index: 40;
   transform-origin: bottom center;
   -webkit-transform-origin: bottom center;
+  transform: translate3d(0, calc(var(--p, 0) * 8px), 0) scale(calc(1 + var(--p, 0) * 0.025));
+  -webkit-transform: translate3d(0, calc(var(--p, 0) * 8px), 0) scale(calc(1 + var(--p, 0) * 0.025));
   opacity: 1 !important;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 
+#foregroundImg,
+.foreground-picture img {
+  width: 100%;
+  min-width: 100%;
+  height: auto;
+  display: block;
+  align-bottom: bottom;
+  transform: scale(1.05) translateZ(0);
+  -webkit-transform: scale(1.05) translateZ(0);
+  transform-origin: bottom center;
+  filter: drop-shadow(0 -8px 24px rgba(4, 18, 17, 0.55));
+  opacity: 1;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  contain: paint;
+}
+
+/* Hero Title & CTAs: Smooth upward drift & progressive dissolve */
 #heroTitleWrapper {
-  top: var(--hero-title-top, clamp(160px, 34dvh, 340px));
-  transform: translate3d(0, calc(-1 * var(--p, 0) * 60px), 0) scale(calc(1 - var(--p, 0) * 0.08));
-  -webkit-transform: translate3d(0, calc(-1 * var(--p, 0) * 60px), 0) scale(calc(1 - var(--p, 0) * 0.08));
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  top: var(--hero-title-top);
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+  transform: translate3d(0, calc(-1 * var(--p, 0) * 45px), 0) scale(calc(1 - var(--p, 0) * 0.05));
+  -webkit-transform: translate3d(0, calc(-1 * var(--p, 0) * 45px), 0) scale(calc(1 - var(--p, 0) * 0.05));
   opacity: calc(1 - var(--p, 0) * 2.2);
   will-change: transform, opacity;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 
-/* Elevated Moon & Hero Positioning */
-:root {
-  --moon-bottom-offset: clamp(520px, 74dvh, 85dvh);
-  --hero-title-top: clamp(180px, 38dvh, 380px);
-}
-
-@media (max-width: 640px) {
-  :root {
-    --moon-bottom-offset: clamp(420px, 68dvh, 78dvh);
-    --hero-title-top: clamp(110px, 25dvh, 230px);
-  }
-}
-
-/* Ambient Celestial Glow */
-.lunar-ambient-glow {
-  position: absolute;
-  top: clamp(10px, 3vh, 50px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 65vw;
-  height: 65vw;
-  max-width: 580px;
-  max-height: 580px;
-  background: radial-gradient(circle, rgba(254, 240, 205, 0.24) 0%, rgba(244, 227, 194, 0.08) 45%, transparent 70%);
-  filter: blur(40px);
-  pointer-events: none;
-  z-index: 15;
-}
-
-.top-sky-mist {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 15%, transparent 35%, rgba(10, 32, 30, 0.5) 85%, rgba(6, 20, 19, 0.8) 100%);
-  pointer-events: none;
-  z-index: 6;
-}
-
 /* Luminous Champagne Gold Display Typography */
 .hero-display-title {
   font-family: 'Shippori Mincho', 'Noto Serif SC', serif;
-  font-size: clamp(2.15rem, 5.8vw, 4.85rem);
-  line-height: 0.98;
-  letter-spacing: clamp(0.04em, 0.7vw, 0.09em);
+  font-size: clamp(2.1rem, 5.4vw, 4.75rem);
+  line-height: 1.05;
+  letter-spacing: clamp(0.03em, 0.6vw, 0.08em);
   background: linear-gradient(
     155deg,
     #ffffff 0%,
@@ -211,7 +392,7 @@ html, body {
   color: #f7e6c4;
   text-align: center;
   filter: drop-shadow(0 4px 18px rgba(5, 18, 17, 0.75)) 
-          drop-shadow(0 0 40px rgba(244, 227, 194, 0.25));
+          drop-shadow(0 0 35px rgba(244, 227, 194, 0.22));
   word-break: normal;
   hyphens: none;
 }
@@ -223,6 +404,7 @@ html, body {
   #foregroundWrapper,
   #heroTitleWrapper {
     transform: none !important;
+    -webkit-transform: none !important;
     transition: none !important;
   }
 }
