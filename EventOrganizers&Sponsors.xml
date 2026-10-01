@@ -19,7 +19,7 @@
             <zh>佛州中文教师学会</zh>
             <en>Chinese Language Teachers Association of Florida</en>
           </name>
-          <abbr>CLTA-FL</abbr>
+          <abbr></abbr>
           <category>Educational / Academic Non-Profit</category>
         </entity>
       </entities>
@@ -100,7 +100,7 @@
           <name>
             <en>Miami-Dade County Public Library System</en>
           </name>
-          <abbr>MDPLS</abbr>
+          <abbr></abbr>
           <jurisdiction>Miami-Dade County</jurisdiction>
         </entity>
       </entities>
@@ -118,7 +118,7 @@
             <zh>佛州华人华侨联合会</zh>
             <en>Chinese Association of Science, Education and Culture of Florida</en>
           </name>
-          <abbr>CASEC</abbr>
+          <abbr></abbr>
         </entity>
         <entity id="kenneth-yeung" type="individual-donor">
           <name>
