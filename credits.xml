@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creditsSequence>
+  <section title="Presented By" type="headline">
+    <entity name="Chinese Language Teachers Association of Florida (CLTA-FL)" />
+  </section>
+
+  <section title="Lead Co-Host" type="lead">
+    <entity name="Miami Dade College, Wolfson Campus" />
+  </section>
+
+  <section title="Co-Hosts" type="stacked">
+    <entity name="FIU Asian Studies Program" />
+    <entity name="Miami-Dade County Asian American Advisory Board" />
+    <entity name="Chinese Cultural Foundation, Miami" />
+    <entity name="D&amp;E Foundation" />
+  </section>
+
+  <section title="With the Support Of" type="stacked">
+    <entity name="Miami-Dade County Department of Cultural Affairs and the Cultural Affairs Council" />
+    <entity name="Miami-Dade County Mayor and Board of County Commissioners" />
+    <entity name="Miami-Dade County Public Library System" />
+  </section>
+
+  <section title="Sponsors" type="stacked">
+    <entity name="Chinese Association of Science, Education and Culture of Florida (CASEC)" />
+    <entity name="Kenneth Yeung" />
+    <entity name="China Town West" />
+    <entity name="West Lake University" />
+  </section>
+
+  <section title="Community Partners" type="grid">
+    <entity name="“Kaijuan Yousheng” Recitation Group" />
+    <entity name="Anita Beauty Design" />
+    <entity name="St. Brendan Chinese Dragon Club" />
+    <entity name="Miami Test Center" />
+    <entity name="123 Tea" />
+    <entity name="Miami’s Harmony" />
+    <entity name="Miami Acupuncture and Herbal Solution" />
+    <entity name="Kitty Boba Teahouse" />
+    <entity name="TVC Robotics LLC" />
+    <entity name="Russian School of Mathematics" />
+    <entity name="Atlantic Institute of Oriental Medicine" />
+    <entity name="China Vietnam Merchant" />
+    <entity name="Diamond Dynamic Creations" />
+    <entity name="Volcano Hot Pot BBQ" />
+    <entity name="Sweet Spoon" />
+    <entity name="Leadus Insurance &amp; Coverall Medical Center" />
+    <entity name="Int'l Cafe" />
+    <entity name="Travel Poet_Avery Crane" />
+    <entity name="67 Sweet House" />
+  </section>
+</creditsSequence>
