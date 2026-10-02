@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<festivalProgram xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="MHMF-2026-STAGE">
+  
+  <!-- Festival Metadata -->
+  <metadata>
+    <festivalName>
+      <en>2026 Miami Harvest Moon Celebration</en>
+      <zh-Hans>2026 迈阿密中秋</zh-Hans>
+    </festivalName>
+    <mainTitle>
+      <en>Together Under One Moon</en>
+      <zh-Hans>天涯共此时</zh-Hans>
+    </mainTitle>
+    <programType>
+      <en>Stage Performance Program</en>
+      <zh-Hans>舞台演出节目单</zh-Hans>
+    </programType>
+    <schedule>
+      <date>2026-10-03</date>
+      <dayOfWeek>Saturday</dayOfWeek>
+      <timeRange startTime="13:00" endTime="15:00" timezone="EDT">1:00 PM – 3:00 PM</timeRange>
+    </schedule>
+    <venue>
+      <facility>Miami Dade College Wolfson Campus</facility>
+      <hall>Auditorium</hall>
+      <location>Miami, Florida, USA</location>
+    </venue>
+    <curatorialStatement>
+      <en>One moon carries us from Chinese poetry, dance, and opera to the voices of Miami’s young people—and brings our cultures together on one stage.</en>
+      <zh-Hans>一轮明月，从中国的诗歌、舞蹈与戏曲升起，照进迈阿密年轻人的歌声，最后让不同文化在同一个舞台相遇。</zh-Hans>
+    </curatorialStatement>
+  </metadata>
+
+  <!-- Opening Protocol -->
+  <openingCeremony>
+    <segment order="0">
+      <title>
+        <en>Welcome and Opening Remarks</en>
+        <zh-Hans>欢迎与开场致辞</zh-Hans>
+      </title>
+      <type>OpeningAddress</type>
+    </segment>
+  </openingCeremony>
+
+  <!-- Program Lineup -->
+  <scheduleLineup>
+    
+    <!-- Prologue -->
+    <chapter id="prologue" sequence="1">
+      <chapterTitle>
+        <en>Prologue: Awakening the Moon</en>
+        <zh-Hans>序章：醒狮迎月</zh-Hans>
+      </chapterTitle>
+      <performances>
+        <performance number="1" genre="Traditional Martial Arts &amp; Lion Dance">
+          <title>
+            <en>Lion Dance &amp; Kung Fu Performance</en>
+            <zh-Hans>醒狮与功夫表演</zh-Hans>
+          </title>
+          <ensemble>
+            <name>
+              <en>Lee Koon Hung Kung Fu</en>
+              <zh-Hans>李冠雄国术总会</zh-Hans>
+            </name>
+          </ensemble>
+        </performance>
+      </performances>
+    </chapter>
+
+    <!-- Act I -->
+    <chapter id="act-1" sequence="2">
+      <chapterTitle>
+        <en>Act I: Moonlit Heritage</en>
+        <zh-Hans>第一幕：月映华章</zh-Hans>
+      </chapterTitle>
+      <performances>
+        <performance number="2" genre="Poetry &amp; Dance">
+          <title>
+            <en>"Chang'e" Recitation and "Guanghan Palace" Dance</en>
+            <zh-Hans>《嫦娥》诗歌朗诵与《广寒宫》舞蹈</zh-Hans>
+          </title>
+          <ensemble>
+            <name>
+              <en>La Piazza Academy</en>
+              <zh-Hans>La Piazza Academy</zh-Hans>
+            </name>
+          </ensemble>
+        </performance>
+
+        <performance number="3" genre="Recitation">
+          <title>
+            <en>"Longing" (Xiang Si)</en>
+            <zh-Hans>《相思》朗诵</zh-Hans>
+          </title>
+          <ensemble>
+            <name>
+              <en>Open Book Voices Recitation Group</en>
+              <zh-Hans>开卷有声朗诵组</zh-Hans>
+            </name>
+          </ensemble>
+        </performance>
+
+        <performance number="4" genre="Classical Dance">
+          <title>
+            <en>"Like a Dream" (Ru Meng Ling)</en>
+            <zh-Hans>《如梦令》舞蹈</zh-Hans>
+          </title>
+          <ensemble>
+            <name>
+              <en>St. Brendan High School</en>
+              <zh-Hans>圣布伦丹高中</zh-Hans>
+            </name>
+          </ensemble>
+        </performance>
+
+        <performance number="5" genre="Ethnic &amp; Classical Dance">
+          <title>
+            <en>"Spirit of Water" (Dai Dance) &amp; "A Dance in Blue and Green" (Classical Dance)</en>
+            <zh-Hans>《水之灵》傣族舞与《一舞青绿》中国古典舞</zh-Hans>
+          </title>
+          <ensemble>
+            <name>
+              <en>CF Dance Studio</en>
+              <zh-Hans>淳风舞蹈学校</zh-Hans>
+            </name>
+          </ensemble>
+        </performance>
+
+        <performance number="6" genre="Peking Opera">
+          <title>
+            <en>Farewell My Concubine — Peking Opera Excerpt</en>
+            <zh-Hans>京剧《霸王别姬》选段</zh-Hans>
+          </title>
+          <artists>
+            <artist role="Principal Artist">
+              <name>
+                <en>Qiao Li</en>
+                <zh-Hans>乔丽</zh-Hans>
+              </name>
+              <biography>
+                <en>Qiao Li graduated from the Star Class at the National Academy of Chinese Theatre Arts and is a direct disciple of renowned Peking Opera artist Guan Suoshuang. She won a Gold Award at the inaugural National Peking Opera Grand Prix. She was an invited performer at the Academy Awards ceremony associated with Crouching Tiger, Hidden Dragon and appeared in a Lincoln Center tribute marking the 80th anniversary of Mei Lanfang’s visit to the United States.</en>
+                <zh-Hans>乔丽毕业于中国戏曲学院明星班，是著名京剧表演艺术家关素霜的嫡传弟子，曾获全国首届京剧大奖赛金奖。她曾作为《卧虎藏龙》相关奥斯卡金像奖颁奖晚会的特邀演出嘉宾，并参加林肯中心纪念梅兰芳大师访美80周年的演出。</zh-Hans>
+              </biography>
+            </artist>
+          </artists>
+          <subSegment type="Interactive Education">
+            <title>
+              <en>Peking Opera Interactive Moment</en>
+              <zh-Hans>京剧传承互动</zh-Hans>
+            </title>
+            <participants>
+              <participant>
+                <name>
+                  <en>Qiao Li</en>
+                  <zh-Hans>乔丽</zh-Hans>
+                </name>
+              </participant>
+              <participant>
+                <name>
+                  <en>Isabelle Perkins</en>
+                  <zh-Hans>潘艺伶</zh-Hans>
+                </name>
+                <affiliation>
+                  <en>Carrollton School of the Sacred Heart</en>
+                  <zh-Hans>卡罗尔顿圣心学校</zh-Hans>
+                </affiliation>
+              </participant>
+            </participants>
+          </subSegment>
+        </performance>
+      </performances>
+    </chapter>
+
+    <!-- Act II -->
+    <chapter id="act-2" sequence="3">
+      <chapterTitle>
+        <en>Act II: New Moon, New Voices</en>
+        <zh-Hans>第二幕：新月新声</zh-Hans>
+      </chapterTitle>
+      <performances>
+        <performance number="7" genre="Vocal Solo">
+          <title>
+            <en>"Moonlight" (Ming Yue Guang)</en>
+            <zh-Hans>《明月光》男生独唱</zh-Hans>
+          </title>
+          <artists>
+            <artist role="Soloist">
+              <name>
+                <en>Samy El Mernissi</en>
+                <zh-Hans>Samy El Mernissi</zh-Hans>
+              </name>
+            </artist>
+          </artists>
+        </performance>
+
+        <performance number="8" genre="Contemporary Vocal">
+          <title>
+            <en>"Maybe" (Ke Neng) — Contemporary Chinese Song</en>
+            <zh-Hans>《可能》现代中文歌曲</zh-Hans>
+          </title>
+          <ensemble>
+            <name>
+              <en>Carrollton School of the Sacred Heart</en>
+              <zh-Hans>卡罗尔顿圣心学校</zh-Hans>
+            </name>
+          </ensemble>
+        </performance>
+
+        <performance number="9" genre="Contemporary Song &amp; Dance">
+          <title>
+            <en>"Light" (Guang Liang)</en>
+            <zh-Hans>《光亮》现代歌舞</zh-Hans>
+          </title>
+          <ensemble>
+            <name>
+              <en>Ransom Everglades Middle School</en>
+              <zh-Hans>兰森埃弗格莱兹初中</zh-Hans>
+            </name>
+          </ensemble>
+        </performance>
+
+        <performance number="10" genre="Pop Song &amp; Dance">
+          <title>
+            <en>"Big Bowl Thick Noodles" (Da Wan Kuan Mian)</en>
+            <zh-Hans>《大碗宽面》唱跳</zh-Hans>
+          </title>
+          <ensemble>
+            <name>
+              <en>Jade Dragons Performance Group</en>
+              <zh-Hans>玉龙表演组</zh-Hans>
+            </name>
+          </ensemble>
+        </performance>
+
+        <performance number="11" genre="K-Pop Dance">
+          <title>
+            <en>"Warmful Season"</en>
+            <zh-Hans>《Warmful Season》K-Pop 舞蹈</zh-Hans>
+          </title>
+          <ensemble>
+            <name>
+              <en>Ignite Performance Group</en>
+              <zh-Hans>Ignite 表演组</zh-Hans>
+            </name>
+          </ensemble>
+        </performance>
+      </performances>
+    </chapter>
+
+    <!-- Act III -->
+    <chapter id="act-3" sequence="4">
+      <chapterTitle>
+        <en>Act III: Together Under One Moon</en>
+        <zh-Hans>第三幕：天涯共此时</zh-Hans>
+      </chapterTitle>
+      <performances>
+        <performance number="12" genre="Vocal Solo">
+          <title>
+            <en>The Moon Represents My Heart</en>
+            <zh-Hans>《月亮代表我的心》</zh-Hans>
+          </title>
+          <artists>
+            <artist role="Vocalist">
+              <name>
+                <en>Anaiyah Sunshine</en>
+                <zh-Hans>Anaiyah Sunshine</zh-Hans>
+              </name>
+              <title>
+                <en>Ms. Florida America's United States</en>
+                <zh-Hans>佛罗里达美利坚合众国小姐</zh-Hans>
+              </title>
+            </artist>
+          </artists>
+        </performance>
+
+        <performance number="13" genre="Ensemble Vocal &amp; Dance">
+          <title>
+            <en>A Night of Flowers and a Full Moon</en>
+            <zh-Hans>《花好月圆夜》</zh-Hans>
+          </title>
+          <ensemble>
+            <name>
+              <en>St. Brendan High School</en>
+              <zh-Hans>圣布伦丹高中</zh-Hans>
+            </name>
+          </ensemble>
+        </performance>
+
+        <performance number="14" genre="East-West Musical Fusion">
+          <title>
+            <en>"Moonlight in the City" × "Vivir Mi Vida" (Chinese Ruan and Cuban Music Fusion)</en>
+            <zh-Hans>《城里的月光 × Vivir Mi Vida》阮与古巴音乐跨界合奏</zh-Hans>
+          </title>
+          <ensemble>
+            <name>
+              <en>Fang Music &amp; Joel Indira Band</en>
+              <zh-Hans>方乐团与乔尔·因迪拉乐队</zh-Hans>
+            </name>
+          </ensemble>
+        </performance>
+      </performances>
+    </chapter>
+
+    <!-- Grand Finale -->
+    <chapter id="grand-finale" sequence="5">
+      <chapterTitle>
+        <en>Grand Finale: Culture in Motion, Friendship Beyond Borders</en>
+        <zh-Hans>终章：文化共舞，友谊无界</zh-Hans>
+      </chapterTitle>
+      <performances>
+        <performance number="15" genre="Cultural Fashion Runway">
+          <title>
+            <en>Asian Cultural Attire Fashion Walk</en>
+            <zh-Hans>亚洲民族服饰走秀</zh-Hans>
+          </title>
+          <leadGuests>
+            <guest>
+              <title>
+                <en>Ms. Florida America's United States</en>
+                <zh-Hans>佛罗里达美利坚合众国小姐</zh-Hans>
+              </title>
+            </guest>
+            <guest>
+              <title>
+                <en>Mrs M Universe 2026</en>
+                <zh-Hans>2026 M 环球夫人</zh-Hans>
+              </title>
+            </guest>
+            <guest>
+              <name>
+                <en>Model Sasha</en>
+                <zh-Hans>模特 Sasha</zh-Hans>
+              </name>
+            </guest>
+          </leadGuests>
+        </performance>
+      </performances>
+      
+      <!-- Stage Outro Activities -->
+      <concludingEvents>
+        <event order="1" type="TechPerformance">
+          <title>
+            <en>Unitree Robot Entrance &amp; Group Dance</en>
+            <zh-Hans>机器人入场与全体共舞</zh-Hans>
+          </title>
+          <technology>Unitree Robotics</technology>
+        </event>
+        <event order="2" type="CurtainCall">
+          <title>
+            <en>Full Cast Curtain Call</en>
+            <zh-Hans>全体演员谢幕</zh-Hans>
+          </title>
+        </event>
+      </concludingEvents>
+    </chapter>
+
+  </scheduleLineup>
+</festivalProgram>
