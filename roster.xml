@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event_program>
+  <metadata>
+    <event_title>
+      <zh>2026 Miami Harvest Moon Festival</zh>
+      <en>2026 Miami Harvest Moon Festival</en>
+    </event_title>
+    <theme>
+      <zh>天涯共此时</zh>
+      <en>Together Under One Moon</en>
+    </theme>
+    <program_type>
+      <zh>舞台演出节目单</zh>
+      <en>Stage Performance Program</en>
+    </program_type>
+    <date_time>
+      <date>2026-10-03</date>
+      <day_of_week>Saturday</day_of_week>
+      <time>1:00–3:00 PM</time>
+    </date_time>
+    <venue>
+      <location>Miami Dade College Wolfson Campus</location>
+      <hall>Auditorium</hall>
+    </venue>
+    <description>
+      <zh>一轮明月，从中国的诗歌、舞蹈与戏曲升起，照进迈阿密年轻人的歌声，最后让不同文化在同一个舞台相遇。</zh>
+      <en>One moon carries us from Chinese poetry, dance, and opera to the voices of Miami’s young people—and brings our cultures together on one stage.</en>
+    </description>
+  </metadata>
+
+  <program_schedule>
+    <segment type="opening">
+      <title>
+        <zh>欢迎与开场致辞</zh>
+        <en>Welcome and Opening Remarks</en>
+      </title>
+    </segment>
+
+    <act id="prologue">
+      <title>
+        <zh>序章：醒狮迎月</zh>
+        <en>Prologue: Awakening the Moon</en>
+      </title>
+      <performances>
+        <performance number="1">
+          <title>
+            <zh>醒狮与功夫表演</zh>
+            <en>Lion Dance &amp; Kung Fu Performance</en>
+          </title>
+          <performers>
+            <performer>Lee Koon Hung Kung Fu</performer>
+          </performers>
+        </performance>
+      </performances>
+    </act>
+
+    <act id="act_1">
+      <title>
+        <zh>第一幕：月映华章</zh>
+        <en>Act I: Moonlit Heritage</en>
+      </title>
+      <performances>
+        <performance number="2">
+          <title>
+            <zh>《嫦娥》诗歌朗诵与《广寒宫》舞蹈</zh>
+            <en>Chang’e Recitation and Guanghan Palace Dance</en>
+          </title>
+          <performers>
+            <performer>La Piazza Academy</performer>
+          </performers>
+        </performance>
+        <performance number="3">
+          <title>
+            <zh>《相思》朗诵</zh>
+            <en>Longing</en>
+          </title>
+          <performers>
+            <performer>
+              <zh>开卷有声朗诵组</zh>
+              <en>Open Book Voices Recitation Group</en>
+            </performer>
+          </performers>
+        </performance>
+        <performance number="4">
+          <title>
+            <zh>《如梦令》舞蹈</zh>
+            <en>Like a Dream</en>
+          </title>
+          <performers>
+            <performer>St. Brendan High School</performer>
+          </performers>
+        </performance>
+        <performance number="5">
+          <title>
+            <zh>《水之灵》傣族舞与《一舞青绿》中国古典舞</zh>
+            <en>Spirit of Water and A Dance in Blue and Green</en>
+          </title>
+          <performers>
+            <performer>
+              <zh>淳风舞蹈学校</zh>
+              <en>CF Dance Studio</en>
+            </performer>
+          </performers>
+        </performance>
+        <performance number="6">
+          <title>
+            <zh>京剧《霸王别姬》选段</zh>
+            <en>Farewell My Concubine — Peking Opera Excerpt</en>
+          </title>
+          <performers>
+            <performer>
+              <zh>乔丽</zh>
+              <en>Qiao Li</en>
+            </performer>
+          </performers>
+          <performer_bio>
+            <zh>乔丽毕业于中国戏曲学院明星班，是著名京剧表演艺术家关素霜的嫡传弟子，曾获全国首届京剧大奖赛金奖。她曾作为《卧虎藏龙》相关奥斯卡金像奖颁奖晚会的特邀演出嘉宾，并参加林肯中心纪念梅兰芳大师访美80周年的演出。</zh>
+            <en>Qiao Li graduated from the Star Class at the National Academy of Chinese Theatre Arts and is a direct disciple of renowned Peking Opera artist Guan Suoshuang. She won a Gold Award at the inaugural National Peking Opera Grand Prix. She was an invited performer at the Academy Awards ceremony associated with Crouching Tiger, Hidden Dragon and appeared in a Lincoln Center tribute marking the 80th anniversary of Mei Lanfang’s visit to the United States.</en>
+          </performer_bio>
+        </performance>
+        <special_feature type="interactive">
+          <title>
+            <zh>京剧传承互动</zh>
+            <en>Peking Opera Interactive Moment</en>
+          </title>
+          <participants>
+            <participant>
+              <zh>乔丽与 Isabelle Perkins 潘艺伶</zh>
+              <en>Qiao Li and Isabelle Perkins, Carrollton School of the Sacred Heart</en>
+            </participant>
+          </participants>
+        </special_feature>
+      </performances>
+    </act>
+
+    <act id="act_2">
+      <title>
+        <zh>第二幕：新月新声</zh>
+        <en>Act II: New Moon, New Voices</en>
+      </title>
+      <performances>
+        <performance number="7">
+          <title>
+            <zh>《明月光》男生独唱</zh>
+            <en>Moonlight — Vocal Solo</en>
+          </title>
+          <performers>
+            <performer>Riviera Preparatory School</performer>
+          </performers>
+          <note>演唱者姓名待补 / Singer TBD</note>
+        </performance>
+        <performance number="8">
+          <title>
+            <zh>《可能》现代中文歌曲</zh>
+            <en>Maybe</en>
+          </title>
+          <performers>
+            <performer>Carrollton School of the Sacred Heart</performer>
+          </performers>
+        </performance>
+        <performance number="9">
+          <title>
+            <zh>《光亮》现代歌舞</zh>
+            <en>Light</en>
+          </title>
+          <performers>
+            <performer>Ransom Everglades</performer>
+          </performers>
+        </performance>
+        <performance number="10">
+          <title>
+            <zh>《大碗宽面》唱跳</zh>
+            <en>Big Bowl Thick Noodles</en>
+          </title>
+          <performers>
+            <performer>Jade Dragons Performance Group</performer>
+          </performers>
+        </performance>
+        <performance number="11">
+          <title>
+            <zh>《Warmful Season》K-Pop 舞蹈</zh>
+            <en>K-Pop Dance: Warmful Season</en>
+          </title>
+          <performers>
+            <performer>Ignite Performance Group</performer>
+          </performers>
+        </performance>
+      </performances>
+    </act>
+
+    <act id="act_3">
+      <title>
+        <zh>第三幕：天涯共此时</zh>
+        <en>Act III: Together Under One Moon</en>
+      </title>
+      <performances>
+        <performance number="12">
+          <title>
+            <zh>《月亮代表我的心》</zh>
+            <en>The Moon Represents My Heart</en>
+          </title>
+          <performers>
+            <performer>Ms. Florida America&apos;s United States-Anaiyah Sunshine</performer>
+          </performers>
+        </performance>
+        <performance number="13">
+          <title>
+            <zh>《花好月圆夜》</zh>
+            <en>A Night of Flowers and a Full Moon</en>
+          </title>
+          <performers>
+            <performer>St. Brendan High School</performer>
+          </performers>
+        </performance>
+        <performance number="14">
+          <title>
+            <zh>《城里的月光 × Vivir Mi Vida》</zh>
+            <en>Chinese Ruan and Cuban Music Fusion</en>
+          </title>
+          <performers>
+            <performer>Fang Music &amp; Indira Band</performer>
+          </performers>
+        </performance>
+      </performances>
+    </act>
+
+    <act id="finale">
+      <title>
+        <zh>终章：文化共舞，友谊无界</zh>
+        <en>Grand Finale: Culture in Motion, Friendship Beyond Borders</en>
+      </title>
+      <performances>
+        <performance number="15">
+          <title>
+            <zh>亚洲民族服饰走秀</zh>
+            <en>Asian Cultural Attire Fashion Walk</en>
+          </title>
+          <special_guests>
+            <guest>Ms. Florida America&apos;s United States</guest>
+            <guest>Mrs M Universe 2026</guest>
+            <guest>Model Sasha</guest>
+          </special_guests>
+        </performance>
+        <segment type="robot_dance">
+          <title>
+            <zh>机器人入场与全体共舞</zh>
+            <en>Unitree Robot Entrance &amp; Group Dance</en>
+          </title>
+        </segment>
+        <segment type="curtain_call">
+          <title>
+            <zh>全体演员谢幕</zh>
+            <en>Full Cast Curtain Call</en>
+          </title>
+        </segment>
+      </performances>
+    </act>
+  </program_schedule>
+</event_program>
