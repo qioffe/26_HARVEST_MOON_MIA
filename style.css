@@ -7,48 +7,45 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-html, body {
+html {
   width: 100%;
-  height: 100%;
-  height: 100vh;
-  height: 100dvh;
+  min-height: 100%;
+  background-color: #000000;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  position: fixed;
-  inset: 0;
-  background-color: #143230;
+  background-color: #000000;
   color: #FAF9F6;
-  overscroll-behavior: none;
-  -webkit-overflow-scrolling: auto;
-  touch-action: none;
-  user-select: none;
-  -webkit-user-select: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* =========================================================
-   HERO LOCKED STAGE (100% Locked Viewport)
+   HERO LOCKED STAGE (Sticky Viewport with Scroll Track)
    ========================================================= */
 
 #heroScrollTrack {
-  position: fixed;
-  inset: 0;
+  position: relative;
   width: 100%;
-  height: 100%;
-  height: 100vh;
-  height: 100dvh;
-  overflow: hidden;
-  touch-action: none;
+  height: 190vh;
+  overflow: visible;
 }
 
 #heroSection {
-  position: fixed;
-  inset: 0;
+  position: sticky;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
@@ -95,13 +92,13 @@ html, body {
 
 :root {
   --moon-top: clamp(24px, 4.2dvh, 48px);
-  --hero-title-top: clamp(210px, 24dvh, 260px);
+  --hero-title-top: 50dvh;
 }
 
 @media (max-width: 640px) {
   :root {
     --moon-top: clamp(16px, 2.8dvh, 28px);
-    --hero-title-top: clamp(135px, 17.2dvh, 160px);
+    --hero-title-top: 50dvh;
   }
 }
 
@@ -136,11 +133,11 @@ html, body {
 
 #moonElement,
 .moon-picture img {
-  width: clamp(96px, 11vw, 142px);
-  height: clamp(96px, 11vw, 142px);
+  width: clamp(200px, 22vw, 320px);
+  height: clamp(200px, 22vw, 320px);
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 0 24px rgba(254, 242, 216, 0.65));
+  filter: drop-shadow(0 0 44px rgba(254, 242, 216, 0.75));
   will-change: transform;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
@@ -152,14 +149,14 @@ html, body {
 /* Lunar Ambient Atmospheric Glow */
 #lunarAmbientGlow {
   position: absolute;
-  top: calc(var(--moon-top) - clamp(20px, 4vh, 45px));
+  top: calc(var(--moon-top) - clamp(30px, 5vh, 65px));
   left: 50%;
-  width: clamp(200px, 32vw, 340px);
-  height: clamp(200px, 32vw, 340px);
-  max-width: 360px;
-  max-height: 360px;
-  background: radial-gradient(circle, rgba(254, 240, 205, 0.20) 0%, rgba(244, 227, 194, 0.06) 45%, transparent 70%);
-  filter: blur(28px);
+  width: clamp(380px, 46vw, 620px);
+  height: clamp(380px, 46vw, 620px);
+  max-width: 620px;
+  max-height: 620px;
+  background: radial-gradient(circle, rgba(254, 240, 205, 0.22) 0%, rgba(244, 227, 194, 0.07) 45%, transparent 70%);
+  filter: blur(36px);
   pointer-events: none;
   z-index: 15;
   transform: translate3d(
@@ -194,15 +191,15 @@ html, body {
 
   #moonElement,
   .moon-picture img {
-    width: clamp(72px, 19vw, 92px);
-    height: clamp(72px, 19vw, 92px);
-    filter: drop-shadow(0 0 18px rgba(254, 242, 216, 0.60));
+    width: clamp(150px, 38vw, 210px);
+    height: clamp(150px, 38vw, 210px);
+    filter: drop-shadow(0 0 32px rgba(254, 242, 216, 0.70));
   }
 
   #lunarAmbientGlow {
-    top: calc(var(--moon-top) - 12px);
-    width: clamp(160px, 48vw, 240px);
-    height: clamp(160px, 48vw, 240px);
+    top: calc(var(--moon-top) - 22px);
+    width: clamp(280px, 72vw, 420px);
+    height: clamp(280px, 72vw, 420px);
     transform: translate3d(
       calc(-50% - var(--p, 0) * 16vw),
       calc(var(--p, 0) * 8vh),
@@ -262,12 +259,12 @@ html, body {
   z-index: 25;
   pointer-events: none;
   transform: translate3d(
-    calc(-50% + clamp(65px, 8.5vw, 155px) + var(--p, 0) * 5vw),
+    calc(-50% + clamp(140px, 18vw, 320px) + var(--p, 0) * 5vw),
     calc(var(--p, 0) * 6px),
     0
   );
   -webkit-transform: translate3d(
-    calc(-50% + clamp(65px, 8.5vw, 155px) + var(--p, 0) * 5vw),
+    calc(-50% + clamp(140px, 18vw, 320px) + var(--p, 0) * 5vw),
     calc(var(--p, 0) * 6px),
     0
   );
@@ -295,12 +292,12 @@ html, body {
 @media (max-width: 640px) {
   #midgroundWrapper {
     transform: translate3d(
-      calc(-50% + clamp(36px, 10vw, 54px) + var(--p, 0) * 5vw),
+      calc(-50% + clamp(72px, 19vw, 115px) + var(--p, 0) * 5vw),
       calc(var(--p, 0) * 6px),
       0
     );
     -webkit-transform: translate3d(
-      calc(-50% + clamp(36px, 10vw, 54px) + var(--p, 0) * 5vw),
+      calc(-50% + clamp(72px, 19vw, 115px) + var(--p, 0) * 5vw),
       calc(var(--p, 0) * 6px),
       0
     );
@@ -311,9 +308,19 @@ html, body {
     width: clamp(280px, 76vw, 420px);
     max-width: none;
   }
+
+  #foregroundImg,
+  .foreground-picture img {
+    min-width: 100%;
+    aspect-ratio: 2752 / 448;
+    height: auto;
+    max-height: none;
+    object-fit: cover;
+    object-position: center top;
+  }
 }
 
-/* Foreground Clouds & Figures: Edge-to-edge full clarity, smooth micro-scale */
+/* Foreground Clouds & Figures: Top-half crop anchored at bottom of hero */
 #foregroundWrapper {
   position: absolute;
   inset-x: 0;
@@ -338,7 +345,11 @@ html, body {
 .foreground-picture img {
   width: 100%;
   min-width: 100%;
+  aspect-ratio: 2752 / 448;
   height: auto;
+  max-height: none;
+  object-fit: cover;
+  object-position: center top;
   display: block;
   align-bottom: bottom;
   transform: scale(1.05) translateZ(0);
@@ -352,20 +363,20 @@ html, body {
   contain: paint;
 }
 
-/* Hero Title & CTAs: Smooth upward drift & progressive dissolve */
+/* Hero Title & CTAs: Centered on 50dvh with smooth upward drift & progressive dissolve */
 #heroTitleWrapper {
   position: absolute;
   left: 0;
   right: 0;
   width: 100%;
-  top: var(--hero-title-top);
+  top: var(--hero-title-top, 50dvh);
   z-index: 45;
   display: flex;
   flex-direction: column;
   align-items: center;
   user-select: none;
-  transform: translate3d(0, calc(-1 * var(--p, 0) * 45px), 0) scale(calc(1 - var(--p, 0) * 0.05));
-  -webkit-transform: translate3d(0, calc(-1 * var(--p, 0) * 45px), 0) scale(calc(1 - var(--p, 0) * 0.05));
+  transform: translate3d(0, calc(-50% - var(--p, 0) * 45px), 0) scale(calc(1 - var(--p, 0) * 0.05));
+  -webkit-transform: translate3d(0, calc(-50% - var(--p, 0) * 45px), 0) scale(calc(1 - var(--p, 0) * 0.05));
   opacity: calc(1 - var(--p, 0) * 2.2);
   will-change: transform, opacity;
   backface-visibility: hidden;
@@ -397,14 +408,286 @@ html, body {
   hyphens: none;
 }
 
+/* Present Info Stack: Full-screen Theatrical Stage Overlay ("Lights Off" Veil) */
+#presentInfoStack {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  user-select: none;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+
+/* Hollywood End Credits Professional Typography */
+.cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.credit-title-role {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.725rem;
+  color: #DFC18A;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+@media (min-width: 640px) {
+  .credit-title-role {
+    font-size: 0.75rem;
+    letter-spacing: 0.32em;
+  }
+}
+
+.cinema-headline-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FAF9F6;
+  line-height: 1.45;
+}
+@media (min-width: 640px) {
+  .cinema-headline-name {
+    font-size: 1.65rem;
+    letter-spacing: 0.10em;
+  }
+}
+
+.cinema-lead-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #F4F4F5;
+  line-height: 1.45;
+}
+@media (min-width: 640px) {
+  .cinema-lead-name {
+    font-size: 1.35rem;
+    letter-spacing: 0.08em;
+  }
+}
+
+.cinema-stacked-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #E4E4E7;
+  line-height: 1.6;
+}
+@media (min-width: 640px) {
+  .cinema-stacked-name {
+    font-size: 1.05rem;
+    letter-spacing: 0.07em;
+  }
+}
+
+.cinema-community-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #D4D4D8;
+  line-height: 1.55;
+  display: block;
+}
+@media (min-width: 640px) {
+  .cinema-community-name {
+    font-size: 0.875rem;
+  }
+}
+
+.credit-name {
+  font-family: 'Cinzel', serif;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: #E4E4E7;
+}
+
+/* Fullscreen Cinematic Letterbox Scrim & Deep Outer Vignette */
+.theater-fullscreen-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(180deg, rgba(3, 7, 10, 0.94) 0%, rgba(5, 9, 13, 0.72) 16%, rgba(5, 9, 13, 0.72) 84%, rgba(3, 7, 10, 0.94) 100%),
+    radial-gradient(ellipse 110% 95% at 50% 50%, rgba(10, 17, 24, 0.75) 0%, rgba(4, 7, 11, 0.92) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+
+/* Volumetric Theatrical Backlighting (IMAX Projection Glow behind typography) */
+.cinema-volumetric-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 860px;
+  height: 75%;
+  max-height: 560px;
+  background: radial-gradient(
+    ellipse 75% 60% at 50% 50%,
+    rgba(226, 197, 130, 0.08) 0%,
+    rgba(212, 175, 55, 0.03) 48%,
+    transparent 75%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Clean Unboxed Return Cue */
+.cinema-return-cue {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #DFC18A;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+}
+
+/* =========================================================
+   CLEAN & MINIMAL THEATRICAL MARKS & BUG BLOCK (NO CARDS, NO HOVER JUMPS)
+   ========================================================= */
+.tc-core-logo-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tc-core-mark-img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+.tc-mark-fallback-label {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: #DFC18A;
+  text-transform: uppercase;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Minimal Unboxed End Bug Block */
+.tc-bug-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0.25rem;
+}
+
+/* Hollywood Community Partners Clean Minimal Typography */
+.tc-community-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  column-gap: 3rem;
+  row-gap: 0.75rem;
+  max-width: 54rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .tc-community-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .tc-community-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.tc-community-item {
+  display: block;
+  padding: 0.2rem 0;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: #D4D4D8;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  border: none;
+  background: transparent;
+}
+@media (min-width: 640px) {
+  .tc-community-item {
+    font-size: 0.875rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   #moonWrapper,
   #lunarAmbientGlow,
   #midgroundWrapper,
-  #foregroundWrapper,
-  #heroTitleWrapper {
+  #foregroundWrapper {
     transform: none !important;
     -webkit-transform: none !important;
     transition: none !important;
+  }
+
+  #heroTitleWrapper {
+    transform: translate3d(0, -50%, 0) !important;
+    -webkit-transform: translate3d(0, -50%, 0) !important;
+    transition: opacity 0.3s ease !important;
+  }
+
+  #presentInfoStack {
+    transform: none !important;
+    -webkit-transform: none !important;
+    transition: opacity 0.3s ease !important;
   }
 }

@@ -9,10 +9,10 @@
   <meta property="og:title" content="2026 Chinese Culture Festival – Harvest Moon Celebration | Miami, FL">
   <meta property="og:description" content="Annual Chinese Culture Festival celebrating the Harvest Moon with music, martial arts, performances, and living traditions at MDC Wolfson Campus in Miami, FL.">
 
-  <!-- Google Fonts: Noto Serif SC + Cinzel + JetBrains Mono + Shippori Mincho + Plus Jakarta Sans -->
+  <!-- Google Fonts: Cinzel + Inter + Cormorant Garamond + Noto Serif SC + Plus Jakarta Sans + Shippori Mincho -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -26,44 +26,41 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    html, body {
+    html {
       width: 100%;
-      height: 100%;
-      height: 100vh;
-      height: 100dvh;
+      min-height: 100%;
+      scroll-behavior: smooth;
+      background-color: #000000;
+    }
+
+    body {
+      width: 100%;
+      min-height: 100%;
       margin: 0;
       padding: 0;
-      overflow: hidden;
-      position: fixed;
-      inset: 0;
-      background-color: #143230;
+      background-color: #000000;
       color: #FAF9F6;
-      overscroll-behavior: none;
-      -webkit-overflow-scrolling: auto;
-      touch-action: none;
-      user-select: none;
-      -webkit-user-select: none;
+      overflow-x: hidden;
+      overflow-y: auto;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     #heroScrollTrack {
-      position: fixed;
-      inset: 0;
+      position: relative;
       width: 100%;
-      height: 100%;
-      height: 100vh;
-      height: 100dvh;
-      overflow: hidden;
-      touch-action: none;
+      height: 190vh;
+      overflow: visible;
     }
 
     #heroSection {
-      position: fixed;
-      inset: 0;
+      position: sticky;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 100%;
       height: 100vh;
       height: 100dvh;
       overflow: hidden;
@@ -146,6 +143,49 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </a>
+
+          <!-- Subtle Scroll Down Indicator -->
+          <button
+            id="heroScrollDownCue"
+            type="button"
+            class="mt-3.5 text-[10px] tracking-[0.22em] uppercase text-[#DFC18A]/75 hover:text-[#DFC18A] transition-colors flex items-center gap-1.5 cursor-pointer select-none"
+            aria-label="Scroll to discover festival partners"
+          >
+            <span>Scroll for Credits</span>
+            <span class="animate-bounce inline-block text-[11px]">↓</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- DARK COVER VEIL (Fades in on scroll, "lights off" effect, z-45) -->
+      <div 
+        id="presentInfoStack" 
+        class="layer-3d absolute inset-0 w-full h-full h-screen h-[100dvh] z-45 flex flex-col items-center justify-end pb-8 sm:pb-12 select-none overflow-hidden"
+      >
+        <!-- Atmospheric Vignette Dark Cover -->
+        <div class="theater-fullscreen-backdrop" aria-hidden="true"></div>
+
+        <!-- Theatrical Navigation Cues on Dark Cover Stage -->
+        <div class="relative z-10 flex items-center gap-4 sm:gap-6 opacity-80 hover:opacity-100 transition-opacity">
+          <button 
+            id="returnToHeroBtn"
+            type="button" 
+            class="cinema-return-cue"
+            aria-label="Back to Cover"
+          >
+            <span class="text-xs">↑</span>
+            <span>Back to Cover</span>
+          </button>
+          <span class="text-zinc-600 text-xs">•</span>
+          <button 
+            id="scrollToCreditsBtn"
+            type="button"
+            class="cinema-return-cue text-amber-400/90 hover:text-amber-300"
+            aria-label="Theatrical Credits"
+          >
+            <span>Theatrical Credits</span>
+            <span class="text-xs">↓</span>
+          </button>
         </div>
       </div>
 
@@ -235,7 +275,7 @@
             onerror="if (!this.dataset.tried) { this.dataset.tried = '1'; this.src = './landing/foreground.png'; } else if (this.dataset.tried === '1') { this.dataset.tried = '2'; this.src = 'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/foreground.webp'; } else if (this.dataset.tried === '2') { this.dataset.tried = '3'; this.src = 'https://raw.githubusercontent.com/qioffe/Miami_Chinese_Culture_Festival/main/landing/foreground.png'; }"
             alt="Festival Foreground People & Clouds" 
             width="2752"
-            height="477"
+            height="448"
             class="w-full min-w-full h-auto block align-bottom select-none pointer-events-none will-change-transform"
             draggable="false" 
             loading="eager"
@@ -246,6 +286,383 @@
 
     </section>
   </div>
+
+  <!-- =========================================================
+       THEATRICAL CREDITS CONTAINER (Dynamic XML Auto-Update)
+       ========================================================= -->
+  <section 
+    id="theatrical-credits-root" 
+    class="bg-black text-white py-24 px-6 select-none font-sans relative z-30 min-h-screen flex flex-col items-center justify-start selection:bg-amber-400 selection:text-black"
+    aria-label="Festival Organizers and Partners Credits"
+  >
+    <div id="tc-viewport" class="w-full max-w-4xl mx-auto text-center space-y-16">
+      <!-- Populated dynamically via XML -->
+    </div>
+
+    <!-- RETURN TO TOP CUE -->
+    <div class="pt-16 pb-12 flex justify-center">
+      <button 
+        id="creditsBackToTop" 
+        type="button" 
+        class="cinema-return-cue tracking-[0.25em] text-amber-400/80 hover:text-white transition-colors cursor-pointer"
+        aria-label="Back to Top"
+      >
+        <span>↑ Back to Top</span>
+      </button>
+    </div>
+
+    <script>
+      (async function() {
+        // 1. CONFIGURATION: REPOSITORY & LOGO DEFINITIONS
+        const XML_PATHS = [
+          "https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/credits.xml",
+          "https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/public/credits.xml",
+          "https://cdn.jsdelivr.net/gh/qioffe/26_HARVEST_MOON_MIA@main/credits.xml",
+          "https://cdn.jsdelivr.net/gh/qioffe/26_HARVEST_MOON_MIA@main/public/credits.xml",
+          "./credits.xml",
+          "credits.xml"
+        ];
+        const GITHUB_USER = "qioffe";
+        const GITHUB_REPO = "26_HARVEST_MOON_MIA";
+        const GITHUB_BRANCH = "main";
+        const GITHUB_FOLDER = "logos";
+
+        const cdnBase = `https://cdn.jsdelivr.net/gh/${GITHUB_USER}/${GITHUB_REPO}@${GITHUB_BRANCH}/${GITHUB_FOLDER}/`;
+        const rawBase = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${GITHUB_FOLDER}/`;
+        const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${GITHUB_FOLDER}?ref=${GITHUB_BRANCH}`;
+
+        const slugify = (str) => (str || "").toLowerCase().replace(/[^a-z0-9]/g, "").trim();
+
+        // The 4 Core Marks Reserved by Hollywood Cinema Design
+        const CORE_LOGOS = {
+          clta: {
+            id: "clta",
+            label: "CLTA-FL",
+            role: "Presenter",
+            placement: "Top Hero Slot & Bug Block",
+            fullTitle: "Chinese Language Teachers Association of Florida",
+            aliases: ["clta-fl", "cltafl", "clta", "chineselanguageteachersassociationofflorida", "chineselanguageteachersassociationoffloridacltafl"]
+          },
+          mdc: {
+            id: "mdc",
+            label: "Miami Dade College",
+            role: "Lead Co-Host",
+            placement: "Co-Host Slot & Bug Block",
+            fullTitle: "Miami Dade College, Wolfson Campus",
+            aliases: ["mdc", "miamidadecollege", "wolfsoncampus", "mdcwolfson", "miamidadecollegewolfsoncampus"]
+          },
+          miamidade: {
+            id: "miamidade",
+            label: "Miami-Dade County",
+            role: "Civic Endorsement",
+            placement: "Support Slot & Bug Block",
+            fullTitle: "Miami-Dade County Department of Cultural Affairs",
+            aliases: ["culturalaffairs", "miamidadecountyculturalaffairs", "miamidadeculturalaffairs", "miamidadecounty", "miamidade", "support", "seal"]
+          },
+          casec: {
+            id: "casec",
+            label: "CASEC Florida",
+            role: "Title Sponsor",
+            placement: "End Bug Block",
+            fullTitle: "Chinese Association of Science, Education and Culture",
+            aliases: ["casec", "casecflorida", "chineseassociationofscienceeducationandcultureofflorida", "chineseassociationofscienceeducationandcultureoffloridacasec"]
+          }
+        };
+
+        // 2. FETCH GITHUB REPOSITORY LOGO FOLDER INDEX
+        const repoLogoMap = new Map();
+        try {
+          const ghRes = await fetch(apiUrl);
+          if (ghRes.ok) {
+            const files = await ghRes.json();
+            if (Array.isArray(files)) {
+              files.forEach(f => {
+                const base = f.name.substring(0, f.name.lastIndexOf("."));
+                repoLogoMap.set(slugify(base), `${cdnBase}${encodeURIComponent(f.name)}`);
+              });
+            }
+          }
+        } catch (e) {
+          // Fallback silently if offline or rate-limited
+        }
+
+        // Helper to retrieve potential repo URLs for any of the 4 core marks
+        const getCoreLogoUrls = (markId) => {
+          const mark = CORE_LOGOS[markId];
+          if (!mark) return [];
+          const urls = [];
+
+          for (const alias of mark.aliases) {
+            const sKey = slugify(alias);
+            if (repoLogoMap.has(sKey)) {
+              urls.push(repoLogoMap.get(sKey));
+            }
+            urls.push(`${cdnBase}${alias}.png`, `${cdnBase}${alias}.svg`, `${cdnBase}${alias}.webp`);
+            urls.push(`${rawBase}${alias}.png`, `${rawBase}${alias}.svg`, `${rawBase}${alias}.webp`);
+            urls.push(`./logos/${alias}.png`, `./logos/${alias}.svg`);
+          }
+
+          return Array.from(new Set(urls.filter(Boolean)));
+        };
+
+        // Helper to bind image with fallback to text label
+        const bindCoreImage = (containerEl, markId) => {
+          const imgEl = containerEl.querySelector(".tc-core-mark-img");
+          const labelEl = containerEl.querySelector(".tc-mark-fallback-label");
+          const candidates = getCoreLogoUrls(markId);
+
+          let currentIdx = 0;
+          function tryNext() {
+            if (currentIdx < candidates.length) {
+              imgEl.src = candidates[currentIdx++];
+            } else {
+              // Logo not present in repo folder yet -> hide img, keep neat typographic mark
+              imgEl.classList.add("hidden");
+              if (labelEl) labelEl.classList.remove("hidden");
+            }
+          }
+
+          imgEl.onload = () => {
+            imgEl.classList.remove("hidden");
+            if (labelEl) labelEl.classList.add("hidden");
+          };
+          imgEl.onerror = () => {
+            tryNext();
+          };
+
+          tryNext();
+        };
+
+        // 3. FETCH AND PARSE THE XML FILE
+        try {
+          let xmlText = null;
+          for (const p of XML_PATHS) {
+            try {
+              const res = await fetch(p + (p.startsWith("http") ? "?t=" : "?v=") + Date.now());
+              if (res.ok) {
+                xmlText = await res.text();
+                if (xmlText && xmlText.includes("<section")) break;
+              }
+            } catch (_) {}
+          }
+          if (!xmlText) return;
+
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+          const viewport = document.getElementById("tc-viewport");
+          if (!viewport) return;
+          viewport.innerHTML = "";
+
+          const sections = xmlDoc.querySelectorAll("section");
+
+          if (sections.length > 0) {
+            sections.forEach((sec, idx) => {
+              if (idx > 0) {
+                const divider = document.createElement("div");
+                divider.className = "w-12 h-px bg-amber-400/20 mx-auto my-12";
+                viewport.appendChild(divider);
+              }
+
+              const title = sec.getAttribute("title") || "";
+              const type = (sec.getAttribute("type") || "stacked").toLowerCase();
+              const entityEls = Array.from(sec.querySelectorAll("entity"));
+
+              const secEl = document.createElement("div");
+              secEl.className = "space-y-4";
+
+              // Section Title / Role (Refined Cinema Gold)
+              const titleEl = document.createElement("h2");
+              titleEl.className = "credit-title-role";
+              titleEl.textContent = title;
+              secEl.appendChild(titleEl);
+
+              // -------------------------------------------------------------
+              // SECTION 1: TOP HERO SLOT (PRESENTER) -> CORE LOGO 1: CLTA-FL
+              // -------------------------------------------------------------
+              if (type === "headline" || title.toLowerCase().includes("present")) {
+                const list = document.createElement("div");
+                list.className = "space-y-3 max-w-2xl mx-auto";
+
+                // Theatrical Core Logo Slot (CLTA-FL) - Clean, Unboxed
+                const logoBox = document.createElement("div");
+                logoBox.className = "tc-core-logo-slot w-36 sm:w-44 h-16 sm:h-20 mx-auto mb-4";
+                logoBox.innerHTML = `
+                  <span class="tc-mark-fallback-label text-sm font-semibold text-amber-400/90">CLTA-FL</span>
+                  <img class="tc-core-mark-img hidden" alt="CLTA-FL Mark">
+                `;
+                bindCoreImage(logoBox, "clta");
+                list.appendChild(logoBox);
+
+                entityEls.forEach(el => {
+                  const rawName = el.getAttribute("name") || el.textContent.trim();
+                  const nameEl = document.createElement("div");
+                  nameEl.className = "space-y-1";
+                  nameEl.innerHTML = `
+                    <h1 class="cinema-headline-name">${rawName}</h1>
+                  `;
+                  list.appendChild(nameEl);
+                });
+                secEl.appendChild(list);
+              } 
+              // -------------------------------------------------------------
+              // SECTION 2: CO-HOST SLOT (LEAD) -> CORE LOGO 2: MIAMI DADE COLLEGE
+              // -------------------------------------------------------------
+              else if (type === "lead" || title.toLowerCase().includes("lead")) {
+                const list = document.createElement("div");
+                list.className = "space-y-3 max-w-xl mx-auto";
+
+                // Theatrical Core Logo Slot (Miami Dade College) - Clean, Unboxed
+                const logoBox = document.createElement("div");
+                logoBox.className = "tc-core-logo-slot w-32 sm:w-36 h-14 sm:h-16 mx-auto mb-3";
+                logoBox.innerHTML = `
+                  <span class="tc-mark-fallback-label text-xs font-semibold text-zinc-300">MDC</span>
+                  <img class="tc-core-mark-img hidden" alt="Miami Dade College Mark">
+                `;
+                bindCoreImage(logoBox, "mdc");
+                list.appendChild(logoBox);
+
+                entityEls.forEach(el => {
+                  const rawName = el.getAttribute("name") || el.textContent.trim();
+                  const nameEl = document.createElement("div");
+                  nameEl.className = "space-y-1";
+                  nameEl.innerHTML = `
+                    <h2 class="cinema-lead-name">${rawName}</h2>
+                  `;
+                  list.appendChild(nameEl);
+                });
+                secEl.appendChild(list);
+              }
+              // -------------------------------------------------------------
+              // SECTION 4: WITH THE SUPPORT OF -> CORE LOGO 3: MIAMI-DADE COUNTY SEAL
+              // -------------------------------------------------------------
+              else if (title.toLowerCase().includes("support")) {
+                const list = document.createElement("div");
+                list.className = "max-w-xl mx-auto space-y-3";
+
+                // Theatrical Core Logo Slot (Miami-Dade County Cultural Affairs Seal) - Clean, Unboxed
+                const sealBox = document.createElement("div");
+                sealBox.className = "tc-core-logo-slot w-16 sm:w-20 h-16 sm:h-20 mx-auto mb-3";
+                sealBox.innerHTML = `
+                  <span class="tc-mark-fallback-label text-[10px] font-semibold text-amber-400/80 text-center leading-tight">MIAMI<br>DADE</span>
+                  <img class="tc-core-mark-img hidden" alt="Miami-Dade County Seal">
+                `;
+                bindCoreImage(sealBox, "miamidade");
+                list.appendChild(sealBox);
+
+                entityEls.forEach((el, i) => {
+                  const name = el.getAttribute("name") || el.textContent.trim();
+                  const item = document.createElement("div");
+                  item.className = "space-y-0.5";
+                  item.innerHTML = `
+                    ${i > 0 ? '<div class="w-4 h-px bg-zinc-800/50 mx-auto my-2"></div>' : ''}
+                    <p class="cinema-stacked-name">${name}</p>
+                  `;
+                  list.appendChild(item);
+                });
+                secEl.appendChild(list);
+              }
+              // -------------------------------------------------------------
+              // SECTION 6: COMMUNITY PARTNERS -> CLEAN CINEMATIC TYPOGRAPHY GRID
+              // (No cards, no hover jumps, clean minimal Hollywood text)
+              // -------------------------------------------------------------
+              else if (type === "grid" || title.toLowerCase().includes("community")) {
+                const grid = document.createElement("div");
+                grid.className = "tc-community-grid";
+
+                entityEls.forEach(el => {
+                  const name = el.getAttribute("name") || el.textContent.trim();
+                  const item = document.createElement("div");
+                  item.className = "tc-community-item";
+                  item.innerHTML = `<span class="cinema-community-name">${name}</span>`;
+                  grid.appendChild(item);
+                });
+                secEl.appendChild(grid);
+              }
+              // -------------------------------------------------------------
+              // SECTION 3 & 5: CO-HOSTS & SPONSORS -> PURE CINEMATIC TYPOGRAPHY
+              // -------------------------------------------------------------
+              else {
+                const list = document.createElement("div");
+                list.className = "max-w-xl mx-auto space-y-3";
+                entityEls.forEach((el, i) => {
+                  const name = el.getAttribute("name") || el.textContent.trim();
+                  const item = document.createElement("div");
+                  item.className = "space-y-0.5";
+                  item.innerHTML = `
+                    ${i > 0 ? '<div class="w-4 h-px bg-zinc-800/50 mx-auto my-2"></div>' : ''}
+                    <p class="cinema-stacked-name">${name}</p>
+                  `;
+                  list.appendChild(item);
+                });
+                secEl.appendChild(list);
+              }
+
+              viewport.appendChild(secEl);
+            });
+
+            // =============================================================
+            // SECTION 7: HOLLYWOOD END BUG BLOCK (CLEAN & UNBOXED)
+            // =============================================================
+            const bugBlockDivider = document.createElement("div");
+            bugBlockDivider.className = "w-12 h-px bg-amber-400/20 mx-auto mt-16 mb-10";
+            viewport.appendChild(bugBlockDivider);
+
+            const bugBlockSec = document.createElement("div");
+            bugBlockSec.className = "max-w-2xl mx-auto pt-2 pb-6";
+            bugBlockSec.innerHTML = `
+              <h2 class="credit-title-role mb-8">Official Marks &amp; Patronage</h2>
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 items-center justify-items-center">
+                
+                <!-- Bug 1: CLTA-FL (Presenter) -->
+                <div class="tc-bug-slot" id="bug-clta">
+                  <div class="w-full h-10 flex items-center justify-center">
+                    <span class="tc-mark-fallback-label text-xs font-semibold text-amber-400/90">CLTA-FL</span>
+                    <img class="tc-core-mark-img hidden max-h-10" alt="CLTA-FL">
+                  </div>
+                </div>
+
+                <!-- Bug 2: MDC Wolfson (Lead Co-Host) -->
+                <div class="tc-bug-slot" id="bug-mdc">
+                  <div class="w-full h-10 flex items-center justify-center">
+                    <span class="tc-mark-fallback-label text-xs font-semibold text-zinc-300">MDC</span>
+                    <img class="tc-core-mark-img hidden max-h-10" alt="Miami Dade College">
+                  </div>
+                </div>
+
+                <!-- Bug 3: Miami-Dade County (Civic Endorsement) -->
+                <div class="tc-bug-slot" id="bug-miamidade">
+                  <div class="w-full h-10 flex items-center justify-center">
+                    <span class="tc-mark-fallback-label text-[10px] font-semibold text-amber-400/80 text-center leading-tight">MIAMI<br>DADE</span>
+                    <img class="tc-core-mark-img hidden max-h-10" alt="Miami-Dade County Cultural Affairs">
+                  </div>
+                </div>
+
+                <!-- Bug 4: CASEC Florida (Title Sponsor) -->
+                <div class="tc-bug-slot" id="bug-casec">
+                  <div class="w-full h-10 flex items-center justify-center">
+                    <span class="tc-mark-fallback-label text-xs font-semibold text-amber-400/90">CASEC</span>
+                    <img class="tc-core-mark-img hidden max-h-10" alt="CASEC Florida">
+                  </div>
+                </div>
+
+              </div>
+            `;
+
+            viewport.appendChild(bugBlockSec);
+
+            // Bind images for all 4 bugs in Section 7
+            bindCoreImage(bugBlockSec.querySelector("#bug-clta"), "clta");
+            bindCoreImage(bugBlockSec.querySelector("#bug-mdc"), "mdc");
+            bindCoreImage(bugBlockSec.querySelector("#bug-miamidade"), "miamidade");
+            bindCoreImage(bugBlockSec.querySelector("#bug-casec"), "casec");
+          }
+
+        } catch (err) {
+          console.error("Error loading theatrical credits XML:", err);
+        }
+      })();
+    </script>
+  </section>
 
   <!-- External Script (Module & Relative path for Vite + GitHub Pages) -->
   <script type="module" src="./script.js"></script>

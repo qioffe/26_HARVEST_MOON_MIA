@@ -5,12 +5,19 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Cached DOM Elements
+  const heroScrollTrack = document.getElementById('heroScrollTrack');
   const heroSection = document.getElementById('heroSection');
+  const theatricalCreditsSection = document.getElementById('theatrical-credits-root') || document.getElementById('theatricalCreditsSection');
   const moonWrapper = document.getElementById('moonWrapper');
   const lunarGlow = document.getElementById('lunarAmbientGlow');
   const midgroundWrapper = document.getElementById('midgroundWrapper');
   const foregroundWrapper = document.getElementById('foregroundWrapper');
   const titleEl = document.getElementById('heroTitleWrapper');
+  const presentInfoStack = document.getElementById('presentInfoStack');
+  const returnToHeroBtn = document.getElementById('returnToHeroBtn');
+  const scrollToCreditsBtn = document.getElementById('scrollToCreditsBtn');
+  const heroScrollDownCue = document.getElementById('heroScrollDownCue');
+  const creditsBackToTop = document.getElementById('creditsBackToTop');
   const canvas = document.getElementById('ambientDustCanvas');
   const ctx = canvas ? canvas.getContext('2d', { alpha: true, desynchronized: true }) : null;
 
@@ -20,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const imageSources = {
     bannerImg: [
       './landing/banner.webp',
-      './banner.webp',
       './landing/banner.png',
       'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/banner.webp',
       'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/banner.png',
@@ -28,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     moonElement: [
       './landing/moon.webp',
-      './moon.webp',
       './landing/moon.png',
       'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/moon.webp',
       'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/moon.png',
@@ -36,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     midgroundImg: [
       './landing/midground.webp',
-      './midground.webp',
       './landing/midground.png',
       'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/midground.webp',
       'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/midground.png',
@@ -44,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     foregroundImg: [
       './landing/foreground.webp',
-      './foreground.webp',
       './landing/foreground.png',
       'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/foreground.webp',
       'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/foreground.png',
@@ -154,64 +157,71 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* -------------------------------------------------------------
-     3. HIGH-PRECISION INPUT SAMPLER (ZERO BLOCKING)
+     3. HIGH-PRECISION WINDOW SCROLL & INTERACTIVE NAVIGATION
      ------------------------------------------------------------- */
   let animProgress = 0;
-  let targetProgress = 0;
   let lastPointerEvents = '';
 
-  let idleTimer = null;
-  function scheduleReturnToRest() {
-    clearTimeout(idleTimer);
-    idleTimer = setTimeout(() => {
-      targetProgress = 0.0;
-    }, 3000);
+  function calculateScrollProgress() {
+    if (!heroScrollTrack) return 0;
+    const trackHeight = heroScrollTrack.offsetHeight;
+    const scrollDistance = trackHeight - window.innerHeight;
+    if (scrollDistance <= 0) return 0;
+    // Lights-off transition completes comfortably by 85% of hero track distance
+    const fadeDistance = scrollDistance * 0.85;
+    return Math.min(1.0, Math.max(0, window.scrollY / fadeDistance));
   }
 
-  // Wheel / Trackpad with normalized delta & smooth velocity damping
-  window.addEventListener('wheel', (e) => {
-    let dy = e.deltaY;
-    if (e.deltaMode === 1) dy *= 20; // lines to px
-    else if (e.deltaMode === 2) dy *= 380; // pages to px
+  // Interactive Cues for smooth stage navigation
+  if (returnToHeroBtn) {
+    returnToHeroBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
-    // Soft-clamp per-event delta to eliminate mouse wheel sudden jerks
-    const clampedDelta = Math.sign(dy) * Math.min(Math.abs(dy), 65);
-    targetProgress = Math.max(0, Math.min(1.0, targetProgress + clampedDelta * 0.00085));
-    scheduleReturnToRest();
-  }, { passive: true });
+  if (scrollToCreditsBtn) {
+    scrollToCreditsBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (theatricalCreditsSection) {
+        theatricalCreditsSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: window.innerHeight * 1.5, behavior: 'smooth' });
+      }
+    });
+  }
 
-  // Purely Passive Touch Gesture (zero compositor blocking)
-  let touchActive = false;
-  let lastTouchY = 0;
+  if (heroScrollDownCue) {
+    heroScrollDownCue.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (theatricalCreditsSection) {
+        theatricalCreditsSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: window.innerHeight * 1.5, behavior: 'smooth' });
+      }
+    });
+  }
 
-  window.addEventListener('touchstart', (e) => {
-    if (!e.touches || !e.touches[0]) return;
-    clearTimeout(idleTimer);
-    touchActive = true;
-    lastTouchY = e.touches[0].clientY;
-  }, { passive: true });
+  if (creditsBackToTop) {
+    creditsBackToTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
-  window.addEventListener('touchmove', (e) => {
-    if (!touchActive || !e.touches || !e.touches[0]) return;
-    const currentY = e.touches[0].clientY;
-    const deltaY = lastTouchY - currentY;
-
-    // Subpixel deadband filters hardware digitizer tremors
-    if (Math.abs(deltaY) > 0.6) {
-      lastTouchY = currentY;
-      targetProgress = Math.max(0, Math.min(1.0, targetProgress + deltaY * 0.0020));
-    }
-  }, { passive: true });
-
-  window.addEventListener('touchend', () => {
-    touchActive = false;
-    scheduleReturnToRest();
-  }, { passive: true });
-
-  window.addEventListener('touchcancel', () => {
-    touchActive = false;
-    scheduleReturnToRest();
-  }, { passive: true });
+  // Clicking on dark cover veil outside buttons returns smoothly to top
+  if (presentInfoStack) {
+    presentInfoStack.addEventListener('click', (e) => {
+      if (e.target.closest('button') || e.target.closest('a')) return;
+      if (animProgress > 0.45) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  }
 
   /* -------------------------------------------------------------
      4. DIRECT GPU COMPOSITOR RENDERING (60 / 120 FPS STABLE)
@@ -225,8 +235,9 @@ document.addEventListener('DOMContentLoaded', () => {
     lastFrameTime = now;
 
     // Delta-time invariant exponential smoothing
-    // Lambda 8.0 yields identical silky response regardless of screen refresh rate
-    const blend = 1 - Math.exp(-8.0 * dt);
+    // Lambda 14.0 yields silky instantaneous yet jitter-free response
+    const blend = 1 - Math.exp(-14.0 * dt);
+    const targetProgress = calculateScrollProgress();
     const diff = targetProgress - animProgress;
 
     if (Math.abs(diff) < 0.00015) {
@@ -260,8 +271,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // 3. Midground Mountains: Gracefully scaled ridge offset rightward
       if (midgroundWrapper) {
         const baseOffset = isMobile 
-          ? Math.min(54, Math.max(36, 10 * vw)) 
-          : Math.min(155, Math.max(65, 8.5 * vw));
+          ? Math.min(115, Math.max(72, 19 * vw)) 
+          : Math.min(320, Math.max(140, 18 * vw));
         const midShift = p * 5 * vw;
         const midY = p * 6;
         midgroundWrapper.style.transform = `translate3d(calc(-50% + ${(baseOffset + midShift).toFixed(1)}px), ${midY.toFixed(1)}px, 0)`;
@@ -274,20 +285,28 @@ document.addEventListener('DOMContentLoaded', () => {
         foregroundWrapper.style.transform = `translate3d(0, ${foreY.toFixed(1)}px, 0) scale(${foreScale.toFixed(3)})`;
       }
 
-      // 5. Title & CTAs Lockup: Upward drift and progressive soft fade
+      // 5. Title & CTAs Lockup: Centered on 50dvh, upward drift and progressive soft fade
       if (titleEl) {
         const titleY = -p * 45;
         const titleScale = 1 - p * 0.05;
-        const titleOpacity = Math.max(0, 1 - p * 2.2);
-        titleEl.style.transform = `translate3d(0, ${titleY.toFixed(1)}px, 0) scale(${titleScale.toFixed(3)})`;
+        const titleOpacity = Math.max(0, 1 - p * 2.4);
+        titleEl.style.transform = `translate3d(0, calc(-50% + ${titleY.toFixed(1)}px), 0) scale(${titleScale.toFixed(3)})`;
         titleEl.style.opacity = titleOpacity.toFixed(3);
 
-        const isInteractive = p <= 0.25;
+        const isInteractive = p <= 0.20;
         const pointerState = isInteractive ? 'auto' : 'none';
         if (pointerState !== lastPointerEvents) {
           titleEl.style.pointerEvents = pointerState;
           lastPointerEvents = pointerState;
         }
+      }
+
+      // 6. Present Info Stack: "Lights Off" Dark Cover Veil fades in
+      if (presentInfoStack) {
+        const presentProgress = Math.min(1.0, Math.max(0, p * 1.15));
+        presentInfoStack.style.opacity = presentProgress.toFixed(3);
+        const isPresentInteractive = p >= 0.40;
+        presentInfoStack.style.pointerEvents = isPresentInteractive ? 'auto' : 'none';
       }
 
       // Sync CSS variable for backwards compatibility
@@ -296,8 +315,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Render Canvas Stardust (zero GC allocations)
-    if (ctx && canvas) {
+    // Render Canvas Stardust only when hero is visible in viewport
+    const trackH = heroScrollTrack ? heroScrollTrack.offsetHeight : window.innerHeight * 2;
+    if (ctx && canvas && window.scrollY < trackH + 50) {
       ctx.clearRect(0, 0, cssW, cssH);
       for (let i = 0; i < particles.length; i++) {
         particles[i].update(dt);
