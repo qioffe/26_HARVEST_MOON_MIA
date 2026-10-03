@@ -26,31 +26,47 @@ document.addEventListener('DOMContentLoaded', () => {
   const imageSources = {
     bannerImg: [
       './landing/banner.webp',
+      './public/landing/banner.webp',
+      'landing/banner.webp',
+      'public/landing/banner.webp',
       './landing/banner.png',
-      'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/banner.webp',
-      'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/banner.png',
-      'https://raw.githubusercontent.com/qioffe/Miami_Chinese_Culture_Festival/main/landing/banner.png'
+      './public/landing/banner.png',
+      'https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/public/landing/banner.webp',
+      'https://cdn.jsdelivr.net/gh/qioffe/26_HARVEST_MOON_MIA@main/public/landing/banner.webp',
+      'https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/public/landing/banner.png'
     ],
     moonElement: [
       './landing/moon.webp',
+      './public/landing/moon.webp',
+      'landing/moon.webp',
+      'public/landing/moon.webp',
       './landing/moon.png',
-      'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/moon.webp',
-      'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/moon.png',
-      'https://raw.githubusercontent.com/qioffe/Miami_Chinese_Culture_Festival/main/landing/moon.png'
+      './public/landing/moon.png',
+      'https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/public/landing/moon.webp',
+      'https://cdn.jsdelivr.net/gh/qioffe/26_HARVEST_MOON_MIA@main/public/landing/moon.webp',
+      'https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/public/landing/moon.png'
     ],
     midgroundImg: [
       './landing/midground.webp',
+      './public/landing/midground.webp',
+      'landing/midground.webp',
+      'public/landing/midground.webp',
       './landing/midground.png',
-      'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/midground.webp',
-      'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/midground.png',
-      'https://raw.githubusercontent.com/qioffe/Miami_Chinese_Culture_Festival/main/landing/midground.png'
+      './public/landing/midground.png',
+      'https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/public/landing/midground.webp',
+      'https://cdn.jsdelivr.net/gh/qioffe/26_HARVEST_MOON_MIA@main/public/landing/midground.webp',
+      'https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/public/landing/midground.png'
     ],
     foregroundImg: [
       './landing/foreground.webp',
+      './public/landing/foreground.webp',
+      'landing/foreground.webp',
+      'public/landing/foreground.webp',
       './landing/foreground.png',
-      'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/foreground.webp',
-      'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/foreground.png',
-      'https://raw.githubusercontent.com/qioffe/Miami_Chinese_Culture_Festival/main/landing/foreground.png'
+      './public/landing/foreground.png',
+      'https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/public/landing/foreground.webp',
+      'https://cdn.jsdelivr.net/gh/qioffe/26_HARVEST_MOON_MIA@main/public/landing/foreground.webp',
+      'https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/public/landing/foreground.png'
     ]
   };
 
@@ -164,8 +180,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!stageProgramContent) return;
     const XML_PATHS = [
       './MHMC-2026-STAGE.xml',
-      '/MHMC-2026-STAGE.xml',
+      './public/MHMC-2026-STAGE.xml',
       'MHMC-2026-STAGE.xml',
+      'public/MHMC-2026-STAGE.xml',
+      '/MHMC-2026-STAGE.xml',
+      '/public/MHMC-2026-STAGE.xml',
+      'https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/public/MHMC-2026-STAGE.xml',
+      'https://cdn.jsdelivr.net/gh/qioffe/26_HARVEST_MOON_MIA@main/public/MHMC-2026-STAGE.xml',
       'https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/MHMC-2026-STAGE.xml',
       'https://cdn.jsdelivr.net/gh/qioffe/26_HARVEST_MOON_MIA@main/MHMC-2026-STAGE.xml'
     ];
@@ -558,12 +579,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const XML_PATHS = [
       "./credits.xml",
-      "/credits.xml",
+      "./public/credits.xml",
       "credits.xml",
-      "https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/credits.xml",
+      "public/credits.xml",
+      "/credits.xml",
+      "/public/credits.xml",
       "https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/public/credits.xml",
-      "https://cdn.jsdelivr.net/gh/qioffe/26_HARVEST_MOON_MIA@main/credits.xml",
-      "https://cdn.jsdelivr.net/gh/qioffe/26_HARVEST_MOON_MIA@main/public/credits.xml"
+      "https://cdn.jsdelivr.net/gh/qioffe/26_HARVEST_MOON_MIA@main/public/credits.xml",
+      "https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/credits.xml",
+      "https://cdn.jsdelivr.net/gh/qioffe/26_HARVEST_MOON_MIA@main/credits.xml"
     ];
     const GITHUB_USER = "qioffe";
     const GITHUB_REPO = "26_HARVEST_MOON_MIA";
@@ -640,17 +664,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
       for (const alias of mark.aliases) {
         const enc = encodeURIComponent(alias);
-        // 1. High priority: Fast local cached assets (Zero HTTP 404 latency)
-        urls.push(`./logos/${alias}.png`, `/logos/${alias}.png`, `./logos/${enc}.png`, `/logos/${enc}.png`);
+        // 1. Local paths (both root and public/ folder for GitHub Pages & Vite)
+        urls.push(
+          `./logos/${alias}.png`,
+          `./public/logos/${alias}.png`,
+          `logos/${alias}.png`,
+          `public/logos/${alias}.png`,
+          `./logos/${enc}.png`,
+          `./public/logos/${enc}.png`,
+          `/logos/${alias}.png`,
+          `/public/logos/${alias}.png`
+        );
         
-        // 2. High priority: Exactly resolved GitHub file from API
+        // 2. Exactly resolved GitHub file from API
         const sKey = slugify(alias);
         if (repoLogoMap.has(sKey)) {
           urls.push(repoLogoMap.get(sKey));
         }
 
         // 3. Fallback CDN / Raw GitHub
-        urls.push(`${cdnBase}${enc}.png`, `${rawBase}${enc}.png`);
+        urls.push(
+          `https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/public/logos/${enc}.png`,
+          `https://cdn.jsdelivr.net/gh/qioffe/26_HARVEST_MOON_MIA@main/public/logos/${enc}.png`,
+          `${cdnBase}${enc}.png`,
+          `${rawBase}${enc}.png`
+        );
       }
 
       return Array.from(new Set(urls.filter(Boolean)));

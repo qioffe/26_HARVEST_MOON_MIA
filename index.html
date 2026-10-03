@@ -102,11 +102,11 @@
         class="absolute inset-0 w-full h-full z-10 pointer-events-none select-none overflow-hidden block"
       >
         <picture class="banner-picture w-full h-full block">
-          <source srcset="./landing/banner.webp" type="image/webp">
+          <source srcset="./landing/banner.webp, ./public/landing/banner.webp" type="image/webp">
           <img 
             id="bannerImg" 
             src="./landing/banner.webp" 
-            onerror="if (!this.dataset.tried) { this.dataset.tried = '1'; this.src = './landing/banner.png'; } else if (this.dataset.tried === '1') { this.dataset.tried = '2'; this.src = 'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/banner.webp'; } else if (this.dataset.tried === '2') { this.dataset.tried = '3'; this.src = 'https://raw.githubusercontent.com/qioffe/Miami_Chinese_Culture_Festival/main/landing/banner.png'; }"
+            onerror="if (!this.dataset.tried) { this.dataset.tried = '1'; this.src = './public/landing/banner.webp'; } else if (this.dataset.tried === '1') { this.dataset.tried = '2'; this.src = './landing/banner.png'; } else if (this.dataset.tried === '2') { this.dataset.tried = '3'; this.src = './public/landing/banner.png'; } else if (this.dataset.tried === '3') { this.dataset.tried = '4'; this.src = 'https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/public/landing/banner.webp'; } else if (this.dataset.tried === '4') { this.dataset.tried = '5'; this.src = 'https://cdn.jsdelivr.net/gh/qioffe/26_HARVEST_MOON_MIA@main/public/landing/banner.webp'; }"
             alt="Festival Sky and Mountain Banner" 
             width="1672"
             height="2972"
@@ -129,11 +129,11 @@
             class="layer-3d absolute left-1/2 z-20 flex justify-center items-center pointer-events-none"
           >
             <picture class="moon-picture block">
-              <source srcset="./landing/moon.webp" type="image/webp">
+              <source srcset="./landing/moon.webp, ./public/landing/moon.webp" type="image/webp">
               <img 
                 id="moonElement" 
                 src="./landing/moon.webp" 
-                onerror="if (!this.dataset.tried) { this.dataset.tried = '1'; this.src = './landing/moon.png'; } else if (this.dataset.tried === '1') { this.dataset.tried = '2'; this.src = 'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/moon.webp'; } else if (this.dataset.tried === '2') { this.dataset.tried = '3'; this.src = 'https://raw.githubusercontent.com/qioffe/Miami_Chinese_Culture_Festival/main/landing/moon.png'; }"
+                onerror="if (!this.dataset.tried) { this.dataset.tried = '1'; this.src = './public/landing/moon.webp'; } else if (this.dataset.tried === '1') { this.dataset.tried = '2'; this.src = './landing/moon.png'; } else if (this.dataset.tried === '2') { this.dataset.tried = '3'; this.src = './public/landing/moon.png'; } else if (this.dataset.tried === '3') { this.dataset.tried = '4'; this.src = 'https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/public/landing/moon.webp'; } else if (this.dataset.tried === '4') { this.dataset.tried = '5'; this.src = 'https://cdn.jsdelivr.net/gh/qioffe/26_HARVEST_MOON_MIA@main/public/landing/moon.webp'; }"
                 alt="Harvest Moon" 
                 width="636"
                 height="626"
@@ -152,11 +152,11 @@
             class="layer-3d absolute left-1/2 bottom-0 w-full flex justify-center items-end leading-none z-[25] pointer-events-none select-none will-change-transform"
           >
             <picture class="midground-picture block">
-              <source srcset="./landing/midground.webp" type="image/webp">
+              <source srcset="./landing/midground.webp, ./public/landing/midground.webp" type="image/webp">
               <img 
                 id="midgroundImg" 
                 src="./landing/midground.webp" 
-                onerror="if (!this.dataset.tried) { this.dataset.tried = '1'; this.src = './landing/midground.png'; } else if (this.dataset.tried === '1') { this.dataset.tried = '2'; this.src = 'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/midground.webp'; } else if (this.dataset.tried === '2') { this.dataset.tried = '3'; this.src = 'https://raw.githubusercontent.com/qioffe/Miami_Chinese_Culture_Festival/main/landing/midground.png'; }"
+                onerror="if (!this.dataset.tried) { this.dataset.tried = '1'; this.src = './public/landing/midground.webp'; } else if (this.dataset.tried === '1') { this.dataset.tried = '2'; this.src = './landing/midground.png'; } else if (this.dataset.tried === '2') { this.dataset.tried = '3'; this.src = './public/landing/midground.png'; } else if (this.dataset.tried === '3') { this.dataset.tried = '4'; this.src = 'https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/public/landing/midground.webp'; } else if (this.dataset.tried === '4') { this.dataset.tried = '5'; this.src = 'https://cdn.jsdelivr.net/gh/qioffe/26_HARVEST_MOON_MIA@main/public/landing/midground.webp'; }"
                 alt="Midground Scenery" 
                 width="1528"
                 height="1038"
@@ -178,11 +178,11 @@
         class="layer-3d absolute inset-x-0 bottom-0 w-full flex justify-center items-end pointer-events-none z-40 origin-bottom will-change-transform"
       >
         <picture class="foreground-picture block w-full">
-          <source srcset="./landing/foreground.webp" type="image/webp">
+          <source srcset="./landing/foreground.webp, ./public/landing/foreground.webp" type="image/webp">
           <img 
             id="foregroundImg" 
             src="./landing/foreground.webp" 
-            onerror="if (!this.dataset.tried) { this.dataset.tried = '1'; this.src = './landing/foreground.png'; } else if (this.dataset.tried === '1') { this.dataset.tried = '2'; this.src = 'https://cdn.jsdelivr.net/gh/qioffe/Miami_Chinese_Culture_Festival@main/landing/foreground.webp'; } else if (this.dataset.tried === '2') { this.dataset.tried = '3'; this.src = 'https://raw.githubusercontent.com/qioffe/Miami_Chinese_Culture_Festival/main/landing/foreground.png'; }"
+            onerror="if (!this.dataset.tried) { this.dataset.tried = '1'; this.src = './public/landing/foreground.webp'; } else if (this.dataset.tried === '1') { this.dataset.tried = '2'; this.src = './landing/foreground.png'; } else if (this.dataset.tried === '2') { this.dataset.tried = '3'; this.src = './public/landing/foreground.png'; } else if (this.dataset.tried === '3') { this.dataset.tried = '4'; this.src = 'https://raw.githubusercontent.com/qioffe/26_HARVEST_MOON_MIA/main/public/landing/foreground.webp'; } else if (this.dataset.tried === '4') { this.dataset.tried = '5'; this.src = 'https://cdn.jsdelivr.net/gh/qioffe/26_HARVEST_MOON_MIA@main/public/landing/foreground.webp'; }"
             alt="Festival Foreground People & Clouds" 
             width="2752"
             height="448"
