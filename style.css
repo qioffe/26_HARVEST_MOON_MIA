@@ -36,12 +36,14 @@ body {
 #heroScrollTrack {
   position: relative;
   width: 100%;
-  height: 135vh;
+  height: 140vh;
+  height: 140dvh;
 }
 
 @media (max-width: 640px) {
   #heroScrollTrack {
-    height: 120vh;
+    height: 130vh;
+    height: 130dvh;
   }
 }
 
@@ -51,10 +53,12 @@ body {
   left: 0;
   width: 100%;
   height: 100vh;
-  height: 100svh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
   touch-action: pan-y;
-  background: #143230 linear-gradient(180deg, #18413e 0%, #102a28 60%, #091212 100%);
+  background: #143230 linear-gradient(180deg, #18413e 0%, #102a28 60%, #040506 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -96,14 +100,14 @@ body {
    ========================================================= */
 
 :root {
-  --moon-top: clamp(24px, 4.2dvh, 48px);
-  --hero-title-top: calc(50dvh + clamp(28px, 4.5vh, 56px));
+  --moon-top: clamp(20px, 3.5dvh, 48px);
+  --hero-title-top: 48dvh;
 }
 
 @media (max-width: 640px) {
   :root {
-    --moon-top: clamp(16px, 2.8dvh, 28px);
-    --hero-title-top: calc(50dvh + clamp(20px, 3.8vh, 38px));
+    --moon-top: clamp(14px, 2.2dvh, 26px);
+    --hero-title-top: 47dvh;
   }
 }
 
@@ -221,9 +225,10 @@ body {
 /* Luminous Gilded Cultural Masthead: Imperial Gold Lacquer & Cinnabar Warmth */
 .cultural-masthead-text {
   font-family: 'Noto Serif SC', 'Shippori Mincho', serif;
-  font-weight: 600;
-  letter-spacing: clamp(0.24em, 0.65vw, 0.38em);
-  padding-left: clamp(0.24em, 0.65vw, 0.38em);
+  font-size: clamp(0.82rem, 2.2vw, 1.05rem);
+  font-weight: 700;
+  letter-spacing: clamp(0.18em, 0.45vw, 0.32em);
+  padding-left: clamp(0.18em, 0.45vw, 0.32em);
   background: linear-gradient(
     180deg,
     #FFFFFF 0%,
@@ -236,7 +241,7 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: #F7D892;
-  filter: drop-shadow(0 2px 8px rgba(2, 12, 11, 0.95)) drop-shadow(0 0 12px rgba(247, 216, 146, 0.35));
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 12px rgba(247, 216, 146, 0.35));
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -317,11 +322,17 @@ body {
   #foregroundImg,
   .foreground-picture img {
     min-width: 100%;
+    width: 100%;
     aspect-ratio: 2752 / 448;
     height: auto;
     max-height: none;
     object-fit: cover;
-    object-position: center top;
+    object-position: center top !important;
+    display: block;
+    vertical-align: bottom;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    transform-origin: bottom center;
   }
 }
 
@@ -338,8 +349,8 @@ body {
   z-index: 40;
   transform-origin: bottom center;
   -webkit-transform-origin: bottom center;
-  transform: translate3d(0, calc(var(--p, 0) * 8px), 0) scale(calc(1 + var(--p, 0) * 0.025));
-  -webkit-transform: translate3d(0, calc(var(--p, 0) * 8px), 0) scale(calc(1 + var(--p, 0) * 0.025));
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
   opacity: 1 !important;
   will-change: transform;
   backface-visibility: hidden;
@@ -354,11 +365,11 @@ body {
   height: auto;
   max-height: none;
   object-fit: cover;
-  object-position: center top;
+  object-position: center top !important;
   display: block;
-  align-bottom: bottom;
-  transform: scale(1.05) translateZ(0);
-  -webkit-transform: scale(1.05) translateZ(0);
+  vertical-align: bottom;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
   transform-origin: bottom center;
   filter: drop-shadow(0 -8px 24px rgba(4, 18, 17, 0.55));
   opacity: 1;
@@ -368,21 +379,21 @@ body {
   contain: paint;
 }
 
-/* Hero Title & CTAs: Centered on 50dvh with smooth upward drift & progressive dissolve */
+/* Hero Title & CTAs: Centered on sky zone with smooth upward drift & progressive dissolve */
 #heroTitleWrapper {
   position: absolute;
   left: 0;
   right: 0;
   width: 100%;
-  top: var(--hero-title-top, 50dvh);
+  top: var(--hero-title-top, 48dvh);
   z-index: 45;
   display: flex;
   flex-direction: column;
   align-items: center;
   user-select: none;
-  transform: translate3d(0, calc(-50% - var(--p, 0) * 45px), 0) scale(calc(1 - var(--p, 0) * 0.05));
-  -webkit-transform: translate3d(0, calc(-50% - var(--p, 0) * 45px), 0) scale(calc(1 - var(--p, 0) * 0.05));
-  opacity: clamp(0, calc(1 - var(--p, 0) * 4.5), 1);
+  transform: translate3d(0, calc(-50% - var(--p, 0) * 35px), 0) scale(calc(1 - var(--p, 0) * 0.04));
+  -webkit-transform: translate3d(0, calc(-50% - var(--p, 0) * 35px), 0) scale(calc(1 - var(--p, 0) * 0.04));
+  opacity: clamp(0, calc(1 - var(--p, 0) * 2.4), 1);
   pointer-events: auto;
   will-change: transform, opacity;
   backface-visibility: hidden;
@@ -394,12 +405,12 @@ body {
   pointer-events: none;
 }
 
-/* Luminous Champagne Gold Display Typography */
+/* Luminous Champagne Gold Display Typography: Balanced across Pixel, Galaxy, iPhone & Desktop */
 .hero-display-title {
   font-family: 'Shippori Mincho', 'Noto Serif SC', serif;
-  font-size: clamp(2.1rem, 5.4vw, 4.75rem);
-  line-height: 1.05;
-  letter-spacing: clamp(0.03em, 0.6vw, 0.08em);
+  font-size: clamp(2.1rem, 6.4vw, 4.35rem);
+  line-height: 1.06;
+  letter-spacing: clamp(0.02em, 0.45vw, 0.06em);
   background: linear-gradient(
     155deg,
     #ffffff 0%,
@@ -413,10 +424,52 @@ body {
   background-clip: text;
   color: #f7e6c4;
   text-align: center;
-  filter: drop-shadow(0 4px 18px rgba(5, 18, 17, 0.75)) 
-          drop-shadow(0 0 35px rgba(244, 227, 194, 0.22));
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.85)) 
+          drop-shadow(0 0 35px rgba(244, 227, 194, 0.3));
   word-break: normal;
   hyphens: none;
+}
+
+/* Hero Metadata & Venue Stack */
+.hero-metadata-bar {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: clamp(0.74rem, 1.8vw, 0.90rem);
+  font-weight: 500;
+  letter-spacing: clamp(0.09em, 0.22vw, 0.16em);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 14px rgba(0, 0, 0, 0.85);
+}
+
+.hero-meta-item {
+  color: #FAF9F6;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
+.hero-venue-item {
+  color: #F7D892;
+  font-weight: 600;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 12px rgba(247, 216, 146, 0.45);
+}
+
+/* High-Contrast Elegant Ticket Button (Refined Luxury Pill) */
+.hero-cta-btn {
+  min-height: 38px;
+  padding: 0.55rem 1.4rem;
+  font-size: clamp(0.72rem, 1.6vw, 0.82rem);
+  letter-spacing: 0.16em;
+  gap: 0.5rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45), 0 0 16px rgba(223, 193, 138, 0.35);
+}
+
+@media (min-width: 640px) {
+  .hero-cta-btn {
+    min-height: 42px;
+    padding: 0.65rem 1.85rem;
+    font-size: 0.82rem;
+  }
+}
+
+.hero-cta-btn:hover {
+  box-shadow: 0 6px 24px rgba(223, 193, 138, 0.65);
 }
 
 /* Stage Performance Program Section */

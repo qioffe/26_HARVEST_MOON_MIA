@@ -1021,6 +1021,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function onScroll() {
     currentScrollY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
+    const currentH = window.innerHeight || 800;
+    if (Math.abs(currentH - cachedWinHeight) > 40) {
+      cachedWinHeight = currentH;
+      if (heroScrollTrack) {
+        cachedTrackHeight = heroScrollTrack.offsetHeight;
+      }
+    }
     isScrollDirty = true;
   }
 
@@ -1092,7 +1099,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (heroTitleWrapperEl) {
-          heroTitleWrapperEl.style.pointerEvents = currentP > 0.22 ? 'none' : 'auto';
+          heroTitleWrapperEl.style.pointerEvents = currentP > 0.45 ? 'none' : 'auto';
         }
       }
     }
