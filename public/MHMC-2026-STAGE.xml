@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<program>
+  <meta>
+    <festival>
+      <en>2026 Miami Harvest Moon Celebration</en>
+      <zh>2026 迈阿密中秋嘉年华</zh>
+    </festival>
+    <title>
+      <en>Together Under One Moon</en>
+      <zh>天涯共此时</zh>
+    </title>
+    <subtitle>
+      <en>Stage Performance Program</en>
+      <zh>节目单</zh>
+    </subtitle>
+    <schedule>
+      <date_en>Saturday, October 3, 2026 · 1:00 – 3:00 PM</date_en>
+      <venue_en></venue_en>
+    </schedule>
+    <thematic_statement>
+      <en>One moon carries us from Chinese poetry, dance, and opera to the voices of Miami’s young people—and brings our cultures together on one stage.</en>
+      <zh>一轮明月，从中国的诗歌、舞蹈与戏曲升起，照进迈阿密年轻人的歌声，最后让不同文化在同一个舞台相遇。</zh>
+    </thematic_statement>
+  </meta>
+  <opening>
+    <title>
+      <en>Welcome and Opening Remarks</en>
+      <zh>欢迎与开场致辞</zh>
+    </title>
+  </opening>
+  <act order="0">
+    <act_title>
+      <en>Prologue: Awakening the Moon</en>
+      <zh>序·醒狮迎月</zh>
+    </act_title>
+    <performances>
+      <item id="1">
+        <title>
+          <en>Lion Dance &amp; Kung Fu</en>
+          <zh>醒狮与功夫表演</zh>
+        </title>
+        <genre>
+          <en>Traditional Lion Dance &amp; Wushu</en>
+          <zh>醒狮与传统武术</zh>
+        </genre>
+        <performers>
+          <performer>
+            <name>
+              <en>Lee Koon Hung Kung Fu</en>
+              <zh>李冠雄功夫总会</zh>
+            </name>
+          </performer>
+        </performers>
+      </item>
+    </performances>
+  </act>
+  <act order="1">
+    <act_title>
+      <en>Act I: Moonlit Heritage</en>
+      <zh>第一幕·月映华章</zh>
+    </act_title>
+    <performances>
+      <item id="2">
+        <title>
+          <en>Chang’e &amp; Guanghan Palace</en>
+          <zh>《嫦娥》与《广寒宫》</zh>
+        </title>
+        <genre>
+          <en>Poetry &amp; Classical Dance</en>
+          <zh>诗朗诵与古典舞</zh>
+        </genre>
+        <performers>
+          <performer>
+            <name>
+              <en>La Piazza Academy</en>
+              <zh>广场学院</zh>
+            </name>
+          </performer>
+        </performers>
+      </item>
+      <item id="3">
+        <title>
+          <en>Longing</en>
+          <zh>《相思》</zh>
+        </title>
+        <genre>
+          <en>Classical Poetry Recitation</en>
+          <zh>经典诗词朗诵</zh>
+        </genre>
+        <performers>
+          <performer>
+            <name>
+              <en>Open Book Voices Recitation Group</en>
+              <zh>开卷有声朗诵组</zh>
+            </name>
+          </performer>
+        </performers>
+      </item>
+      <item id="4">
+        <title>
+          <en>Like a Dream</en>
+          <zh>《如梦令》</zh>
+        </title>
+        <genre>
+          <en>Classical Chinese Dance</en>
+          <zh>中国古典舞</zh>
+        </genre>
+        <performers>
+          <performer>
+            <name>
+              <en>St. Brendan High School</en>
+              <zh>圣布兰登高中</zh>
+            </name>
+          </performer>
+        </performers>
+      </item>
+      <item id="5">
+        <title>
+          <en>Spirit of Water &amp; A Dance in Blue and Green</en>
+          <zh>《水之灵》与《一舞青绿》</zh>
+        </title>
+        <genre>
+          <en>Ethnic &amp; Classical Dance</en>
+          <zh>民族舞与古典舞</zh>
+        </genre>
+        <performers>
+          <performer>
+            <name>
+              <en>CF Dance Studio</en>
+              <zh>淳风舞蹈学校</zh>
+            </name>
+          </performer>
+        </performers>
+      </item>
+      <item id="6">
+        <title>
+          <en>Farewell My Concubine</en>
+          <zh>京剧《霸王别姬》</zh>
+        </title>
+        <genre>
+          <en>Peking Opera</en>
+          <zh>传统京剧选段</zh>
+        </genre>
+        <performers>
+          <performer>
+            <name>
+              <en>Master Qiao Li</en>
+              <zh>乔丽</zh>
+            </name>
+            <bio>
+              <en>A distinguished alumna of the elite Star Class at the National Academy of Chinese Theatre Arts, Master Qiao Li is a direct disciple of legendary Peking Opera virtuoso Guan Suoshuang and a Gold Award laureate at the inaugural National Peking Opera Grand Prix. Her celebrated international appearances include performing at the Academy Awards celebration for Crouching Tiger, Hidden Dragon and headlining Lincoln Center’s historic 80th-anniversary tribute commemorating Mei Lanfang’s tour of the United States.</en>
+              <zh>乔丽毕业于中国戏曲学院明星班，是著名京剧表演艺术家关素霜的嫡传弟子，曾获全国首届京剧大奖赛金奖。她曾作为《卧虎藏龙》相关奥斯卡金像奖颁奖晚会的特邀演出嘉宾，并参加林肯中心纪念梅兰芳大师访美80周年的演出。</zh>
+            </bio>
+          </performer>
+        </performers>
+      </item>
+      <item id="">
+        <title>
+          <en>Peking Opera Interactive Moment</en>
+          <zh>京剧传承互动</zh>
+        </title>
+        <genre>
+          <en>Masterclass &amp; Heritage Demonstration</en>
+          <zh>戏曲身段示范与互动</zh>
+        </genre>
+        <performers>
+          <performer>
+            <name>
+              <en>Qiao Li &amp; Isabelle Perkins (Carrollton School of the Sacred Heart)</en>
+              <zh>乔丽 与 潘艺伶（卡罗尔顿圣心学校）</zh>
+            </name>
+          </performer>
+        </performers>
+      </item>
+    </performances>
+  </act>
+  <act order="2">
+    <act_title>
+      <en>Act II: New Moon, New Voices</en>
+      <zh>第二幕·新月新声</zh>
+    </act_title>
+    <performances>
+      <item id="7">
+        <title>
+          <en>Moonlight</en>
+          <zh>《明月光》</zh>
+        </title>
+        <genre>
+          <en>Vocal Solo</en>
+          <zh>男声独唱</zh>
+        </genre>
+        <performers>
+          <performer>
+            <name>
+              <en>Samy El Mernissi</en>
+              <zh>萨米·埃尔·梅尔尼西</zh>
+            </name>
+          </performer>
+        </performers>
+      </item>
+      <item id="8">
+        <title>
+          <en>Maybe</en>
+          <zh>《可能》</zh>
+        </title>
+        <genre>
+          <en>Contemporary Vocal</en>
+          <zh>现代流行声乐</zh>
+        </genre>
+        <performers>
+          <performer>
+            <name>
+              <en>Carrollton School of the Sacred Heart</en>
+              <zh>卡罗尔顿圣心学校</zh>
+            </name>
+          </performer>
+        </performers>
+      </item>
+      <item id="9">
+        <title>
+          <en>Prelude to Water Melody &amp; Light</en>
+          <zh>《水调歌头》与《光亮》</zh>
+        </title>
+        <genre>
+          <en>Piano Vocal &amp; Contemporary Dance</en>
+          <zh>钢琴伴奏与现代歌舞</zh>
+        </genre>
+        <performers>
+          <performer>
+            <name>
+              <en>Ransom Everglades Middle School</en>
+              <zh>兰塞姆湿地中学（初中部）</zh>
+            </name>
+          </performer>
+        </performers>
+      </item>
+      <item id="10">
+        <title>
+          <en>Big Bowl Thick Noodles</en>
+          <zh>《大碗宽面》</zh>
+        </title>
+        <genre>
+          <en>Urban Pop &amp; Dance</en>
+          <zh>流行唱跳</zh>
+        </genre>
+        <performers>
+          <performer>
+            <name>
+              <en>Jade Dragons Performance Group</en>
+              <zh>玉龙表演艺术团</zh>
+            </name>
+          </performer>
+        </performers>
+      </item>
+      <item id="11">
+        <title>
+          <en>Warmful Season</en>
+          <zh>《Warmful Season》</zh>
+        </title>
+        <genre>
+          <en>Contemporary Pop Dance</en>
+          <zh>流行群舞</zh>
+        </genre>
+        <performers>
+          <performer>
+            <name>
+              <en>Ignite Performance Group</en>
+              <zh>Ignite 舞蹈艺术团</zh>
+            </name>
+          </performer>
+        </performers>
+      </item>
+    </performances>
+  </act>
+  <act order="3">
+    <act_title>
+      <en>Act III: Together Under One Moon</en>
+      <zh>第三幕·天涯共此时</zh>
+    </act_title>
+    <performances>
+      <item id="12">
+        <title>
+          <en>The Moon Represents My Heart</en>
+          <zh>《月亮代表我的心》</zh>
+        </title>
+        <genre>
+          <en>Vocal Solo</en>
+          <zh>经典声乐独唱</zh>
+        </genre>
+        <performers>
+          <performer>
+            <name>
+              <en>Anaiyah Sunshine (Ms. Florida America's United States)</en>
+              <zh>阿奈雅·桑夏恩（美国联合州佛罗里达女士）</zh>
+            </name>
+            <bio>
+              <en>Reigning Ms. Florida America’s United States 2026–2027, Anaiyah Sunshine is a dynamic vocalist, dancer, and international media entrepreneur. With over two decades in commercial entertainment and editorial fashion—including features in Essence and Vogue India—she commands the stage with cross-cultural artistry, performing fluently across genres and languages, notably Mandarin Chinese. As the founder of Miami Style Magazine, Anaiyah seamlessly bridges South Florida’s vibrant pulse with global creative expression.</en>
+              <zh>现任 2026–2027 年度“美国联合州佛罗里达女士”，Anaiyah Sunshine 是一位集声乐、舞蹈与跨文化艺术于一身的杰出表演者与媒体创业家。她拥有二十余年跨国时尚与娱乐行业资历，曾登上《Essence》及《Vogue India》等国际刊物。Anaiyah 擅长运用包括中文普通话在内的多语种进行跨界演绎，并创立《Miami Style Magazine》，在舞台上生动融合南佛罗里达的热烈节拍与多元国际风尚。</zh>
+            </bio>
+          </performer>
+        </performers>
+      </item>
+      <item id="13">
+        <title>
+          <en>A Night of Flowers and a Full Moon</en>
+          <zh>《花好月圆夜》</zh>
+        </title>
+        <genre>
+          <en>Festive Vocal &amp; Dance</en>
+          <zh>节庆歌舞</zh>
+        </genre>
+        <performers>
+          <performer>
+            <name>
+              <en>St. Brendan High School</en>
+              <zh>圣布兰登高中</zh>
+            </name>
+          </performer>
+        </performers>
+      </item>
+      <item id="14">
+        <title>
+          <en>Moonlight in the City × Vivir Mi Vida</en>
+          <zh>《城里的月光 × Vivir Mi Vida》</zh>
+        </title>
+        <genre>
+          <en>Cross-Cultural Instrumental Fusion</en>
+          <zh>跨文化器乐融合</zh>
+        </genre>
+        <performers>
+          <performer>
+            <name>
+              <en>Dr. Fang Shu (Fang Music)</en>
+              <zh>舒方博士</zh>
+            </name>
+            <bio>
+              <en>Scholar, multi-instrumentalist, and cultural visionary Dr. Fang Shu bridges academic rigor with ancestral resonance. An Associate Teaching Professor at Florida International University, he is also the founder of FANG MUSIC, an artistic initiative dedicated to re-imagining the ancient Chinese ruan (moon lute) for modern, global stages. Merging millennium-old traditional idioms with contemporary sonic palettes, Dr. Shu introduces audiences worldwide to the expressive power and depth of Chinese heritage.</en>
+              <zh>学者、器乐演奏家与文化探索者。舒方博士现任佛罗里达国际大学（FIU）副教学教授；在学术之外，他创立“FANG MUSIC”，致力于将中国传统弹拨乐器——中阮，带入现代国际音乐语境。他将跨越千年的古典韵律与当代先锋声景精妙交融，以独具张力的当代诠释向全球观众呈现中国民乐的深邃意境与时代生命力。</zh>
+            </bio>
+          </performer>
+          <performer>
+            <name>
+              <en>Joel Fabelo (Joel Indira Band)</en>
+              <zh>乔尔·法贝洛</zh>
+            </name>
+            <bio>
+              <en>Cuban flutist and master educator Joel Fabelo brings more than two decades of international concert and orchestral artistry to the stage. Renowned for his fluid virtuosity, Fabelo moves effortlessly between rigorous classical repertoire and vibrant Afro-Cuban traditions. A versatile soloist and chamber artist across the Americas, he currently leads Miami’s premier Latin ensembles while shaping the next generation of woodwind performers as a dedicated clinician.</en>
+              <zh>古巴长笛演奏家、音乐教育家 Joel Fabelo 拥有逾二十年国际交响乐团与独奏舞台的深厚积淀。他的演奏风格兼具严谨的古典功底与自由热烈的加勒比律动，以精湛技巧横跨交响室内乐与现代拉丁音乐。如今，他频繁领衔迈阿密顶级拉丁乐团登台献艺，同时作为管乐导师与大师班专家，持续推动当代木管室内乐的发展。</zh>
+            </bio>
+          </performer>
+        </performers>
+      </item>
+    </performances>
+  </act>
+  <act order="4">
+    <act_title>
+      <en>Grand Finale: Culture in Motion, Friendship Beyond Borders</en>
+      <zh>终·文化共舞·友谊无界</zh>
+    </act_title>
+    <performances>
+      <item id="15">
+        <title>
+          <en>Silhouettes &amp; New Forms</en>
+          <zh>《步影新形》</zh>
+        </title>
+        <genre>
+          <en>Living Heritage in Contemporary Movement</en>
+          <zh>传统服饰活态展示</zh>
+        </genre>
+        <performers>
+          <performer>
+            <name>
+              <en>Anaiyah Sunshine (Ms. Florida America's United States)</en>
+              <zh>阿奈雅·桑夏恩（美国联合州佛罗里达女士）</zh>
+            </name>
+          </performer>
+          <performer>
+            <name>
+              <en>Mrs M Universe 2026</en>
+              <zh>2026 环球夫人</zh>
+            </name>
+          </performer>
+          <performer>
+            <name>
+              <en>Sasha</en>
+              <zh>萨莎</zh>
+            </name>
+          </performer>
+          <performer>
+            <name>
+              <en>Unitree G1</en>
+              <zh>宇树 G1 人形机器人</zh>
+            </name>
+          </performer>
+        </performers>
+      </item>
+      <finale>
+        <title>
+          <en>Full Cast Curtain Call</en>
+          <zh>全体演员谢幕</zh>
+        </title>
+        <genre>
+          <en>Curtain Call</en>
+          <zh>全体谢幕</zh>
+        </genre>
+        <performers>
+          <performer>
+            <name>
+              <en>Full Cast</en>
+              <zh>全体演职人员</zh>
+            </name>
+          </performer>
+        </performers>
+      </finale>
+    </performances>
+  </act>
+</program>

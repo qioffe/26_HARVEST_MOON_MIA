@@ -29,6 +29,8 @@
   </section>
 
   <section title="Community Partners" type="grid">
+    <entity name="China Town West" />
+    <entity name="West Lake University" />
     <entity name="“Kaijuan Yousheng” Recitation Group" />
     <entity name="Anita Beauty Design" />
     <entity name="St. Brendan Chinese Dragon Club" />
@@ -47,6 +49,7 @@
     <entity name="Leadus Insurance &amp; Coverall Medical Center" />
     <entity name="Int'l Cafe" />
     <entity name="Travel Poet_Avery Crane" />
-    <entity name="67 Sweet House" />
+    <entity name="Indira Band" />
+    <entity name="Fang Music" />
   </section>
 </creditsSequence>

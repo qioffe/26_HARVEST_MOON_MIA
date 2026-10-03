@@ -13,7 +13,6 @@ html {
   width: 100%;
   min-height: 100%;
   background-color: #000000;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -31,14 +30,19 @@ body {
 }
 
 /* =========================================================
-   HERO LOCKED STAGE (Sticky Viewport with Scroll Track)
+   HERO SCROLL STAGE (Sticky Viewport with Scroll Track)
    ========================================================= */
 
 #heroScrollTrack {
   position: relative;
   width: 100%;
-  height: 190vh;
-  overflow: visible;
+  height: 135vh;
+}
+
+@media (max-width: 640px) {
+  #heroScrollTrack {
+    height: 120vh;
+  }
 }
 
 #heroSection {
@@ -47,8 +51,9 @@ body {
   left: 0;
   width: 100%;
   height: 100vh;
-  height: 100dvh;
+  height: 100svh;
   overflow: hidden;
+  touch-action: pan-y;
   background: #143230 linear-gradient(180deg, #18413e 0%, #102a28 60%, #091212 100%);
   display: flex;
   flex-direction: column;
@@ -92,13 +97,13 @@ body {
 
 :root {
   --moon-top: clamp(24px, 4.2dvh, 48px);
-  --hero-title-top: 50dvh;
+  --hero-title-top: calc(50dvh + clamp(28px, 4.5vh, 56px));
 }
 
 @media (max-width: 640px) {
   :root {
     --moon-top: clamp(16px, 2.8dvh, 28px);
-    --hero-title-top: 50dvh;
+    --hero-title-top: calc(50dvh + clamp(20px, 3.8vh, 38px));
   }
 }
 
@@ -377,10 +382,16 @@ body {
   user-select: none;
   transform: translate3d(0, calc(-50% - var(--p, 0) * 45px), 0) scale(calc(1 - var(--p, 0) * 0.05));
   -webkit-transform: translate3d(0, calc(-50% - var(--p, 0) * 45px), 0) scale(calc(1 - var(--p, 0) * 0.05));
-  opacity: calc(1 - var(--p, 0) * 2.2);
+  opacity: clamp(0, calc(1 - var(--p, 0) * 4.5), 1);
+  pointer-events: auto;
   will-change: transform, opacity;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+}
+
+#heroSection[data-stage="ready"] #heroTitleWrapper,
+#heroSection[data-animating="true"] #heroTitleWrapper {
+  pointer-events: none;
 }
 
 /* Luminous Champagne Gold Display Typography */
@@ -408,26 +419,45 @@ body {
   hyphens: none;
 }
 
-/* Present Info Stack: Full-screen Theatrical Stage Overlay ("Lights Off" Veil) */
+/* Stage Performance Program Section */
 #presentInfoStack {
-  position: absolute;
-  inset: 0;
+  position: relative;
   width: 100%;
-  height: 100%;
-  height: 100vh;
-  height: 100dvh;
-  z-index: 45;
+  min-height: 100vh;
+  z-index: 30;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  user-select: none;
-  opacity: 0;
-  pointer-events: none;
-  will-change: opacity;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  overflow: hidden;
+  justify-content: flex-start;
+  user-select: auto;
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  background-color: #040506;
+  padding: clamp(20px, 3.5vh, 48px) clamp(12px, 3vw, 32px);
+}
+
+#stageProgramCard {
+  width: 100%;
+  max-width: 54rem;
+  min-height: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  box-shadow: 
+    0 32px 100px -10px rgba(0, 0, 0, 0.96),
+    0 16px 40px -8px rgba(0, 0, 0, 0.88),
+    0 6px 16px -2px rgba(0, 0, 0, 0.75),
+    0 0 45px -8px rgba(223, 192, 123, 0.12),
+    inset 0 1px 0 0 rgba(223, 192, 123, 0.22),
+    inset 0 0 80px rgba(10, 18, 15, 0.5);
+  transform: translateZ(0);
+}
+
+#stageProgramScrollContainer {
+  width: 100%;
+  position: relative;
 }
 
 /* Hollywood End Credits Professional Typography */
@@ -443,13 +473,14 @@ body {
   font-size: 0.725rem;
   color: #DFC18A;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   display: block;
 }
 @media (min-width: 640px) {
   .credit-title-role {
     font-size: 0.75rem;
     letter-spacing: 0.32em;
+    margin-bottom: 1rem;
   }
 }
 
@@ -526,18 +557,42 @@ body {
   color: #E4E4E7;
 }
 
-/* Fullscreen Cinematic Letterbox Scrim & Deep Outer Vignette */
+/* Seamless Unified Theatrical Credits Section grounded in Dark Obsidian Ink Lacquer (#040506) */
+#theatrical-credits-root {
+  background-color: #040506 !important;
+  background-image: none !important;
+  border-top: none !important;
+  box-shadow: none !important;
+  margin-top: -2px;
+  position: relative;
+  z-index: 30;
+}
+
+#theatrical-credits-root::before {
+  display: none !important;
+}
+
+/* Luminous Stage Hero Dark Mask with Dark Obsidian Ink Lacquer (#040506) */
+#heroDarkMask,
+.hero-fullscreen-darkmask,
 .theater-fullscreen-backdrop {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  background: 
-    linear-gradient(180deg, rgba(3, 7, 10, 0.94) 0%, rgba(5, 9, 13, 0.72) 16%, rgba(5, 9, 13, 0.72) 84%, rgba(3, 7, 10, 0.94) 100%),
-    radial-gradient(ellipse 110% 95% at 50% 50%, rgba(10, 17, 24, 0.75) 0%, rgba(4, 7, 11, 0.92) 100%);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  z-index: 42;
+  background-color: #040506;
+  background-image: 
+    radial-gradient(circle at 50% 120px, rgba(20, 35, 30, 0.25) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(4, 5, 6, 0.75) 0%, rgba(4, 5, 6, 0.92) 60%, #040506 100%);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: var(--mask-opacity, clamp(0, calc(var(--p, 0) * 1.2), 1));
   pointer-events: none;
+  will-change: opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: opacity 0.08s linear;
 }
 
 /* Volumetric Theatrical Backlighting (IMAX Projection Glow behind typography) */
@@ -596,9 +651,17 @@ body {
 .tc-core-mark-img {
   max-height: 100%;
   max-width: 100%;
+  width: auto;
+  height: auto;
   object-fit: contain;
   filter: brightness(0) invert(1);
   opacity: 0.85;
+  transition: opacity 0.25s ease, filter 0.25s ease, transform 0.25s ease;
+}
+
+.tc-core-mark-img:hover {
+  opacity: 1;
+  filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(223, 192, 123, 0.35));
 }
 
 .tc-mark-fallback-label {
@@ -622,6 +685,21 @@ body {
   border: none;
   box-shadow: none;
   padding: 0.25rem;
+  min-width: 0;
+  width: 100%;
+  transition: transform 0.25s ease;
+}
+
+.tc-bug-slot:hover {
+  transform: translateY(-2px);
+}
+
+.tc-bug-slot .tc-core-mark-img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 /* Hollywood Community Partners Clean Minimal Typography */
@@ -669,6 +747,197 @@ body {
   }
 }
 
+/* =========================================================
+   NEO-CHINESE (新中式) PLAYBILL DESIGN SYSTEM & COLOR PALETTE
+   ========================================================= */
+:root {
+  /* 1. Primary Ground: Xuan Ink & Lacquer (玄色 / 墨黑) */
+  --color-xuan-deep: #040506;
+  --color-xuan-base: #050607;
+  --color-lacquer: #060809;
+  --color-scroll-chassis: #070b09;
+  --color-inset-bio: #080d0b;
+
+  /* 2. Mineral Accent: Shadow Jade & Dark Celadon (黛绿 / 墨玉) */
+  --color-jade-deep: #0e1814;
+  --color-jade-ambient: rgba(25, 42, 36, 0.4);
+  --color-jade-vein-1: #121f1b;
+  --color-jade-vein-2: #162720;
+  --color-jade-vein-3: #1d332a;
+  --color-celadon-muted-1: #3a5c50;
+  --color-celadon-muted-2: #4b6d61;
+  --color-jade-mist-1: #738f83;
+  --color-jade-mist-2: #87a398;
+  --color-jade-mist-3: #959d97;
+
+  /* 3. Metallic Highlight: Brushed Antique Moon Gold (鎏金 / 浅金) */
+  --color-gold-leaf-primary: #dfc07b;
+  --color-gold-leaf-secondary: #cfb268;
+  --color-gold-filigree-1: rgba(207, 178, 104, 0.22);
+  --color-gold-filigree-2: rgba(207, 178, 104, 0.28);
+
+  /* 4. Text Contrast: Silk & Rice Paper Ivory (绢白 / 月白) */
+  --color-silk-ivory: #eae5d9;
+  --color-ivory-prose-1: #bbb3a3;
+  --color-ivory-prose-2: #d8d2c4;
+}
+
+/* 1. Chinese Typography (中文字体) */
+.font-cjk,
+.font-songti,
+.font-noto-serif-sc {
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  font-feature-settings: "palt";
+  letter-spacing: 0.08em;
+}
+
+.editorial-justify-center {
+  text-align: justify;
+  text-justify: inter-ideograph;
+  text-align-last: center;
+  font-kerning: normal;
+}
+
+.editorial-justify {
+  text-align: justify;
+  text-justify: inter-ideograph;
+  text-align-last: left;
+  font-kerning: normal;
+}
+
+/* 2. English & Latin Typography (西文字体) */
+.font-cinzel {
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.20em;
+}
+
+.font-western-serif,
+.font-cormorant {
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+}
+
+.font-cormorant-italic {
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-style: italic;
+}
+
+/* Traditional Chinese Vertical Column (竖排 - 仿明清木活字排版) */
+.vertical-mode {
+  font-family: "Noto Serif SC", "Songti SC", "STSong", serif;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 0.36em;
+}
+@media (min-width: 640px) {
+  .vertical-mode {
+    letter-spacing: 0.48em;
+  }
+}
+
+.vertical-latin-spine {
+  font-family: "Cinzel", serif;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 0.26em;
+}
+
+/* Neo-Chinese Spatial Framing & 留白 (Liu Bai) */
+.scroll-chassis {
+  background: var(--color-scroll-chassis);
+  border: 1px solid rgba(207, 178, 104, 0.28);
+  box-shadow: 
+    0 28px 90px -10px rgba(0, 0, 0, 0.95),
+    0 14px 36px -6px rgba(0, 0, 0, 0.88),
+    0 4px 14px -2px rgba(0, 0, 0, 0.75),
+    0 0 40px -8px rgba(223, 192, 123, 0.10),
+    inset 0 1px 0 0 rgba(223, 192, 123, 0.22),
+    inset 0 0 70px rgba(6, 12, 10, 0.65);
+  border-radius: 6px;
+}
+
+/* Biography Inset Well (Recessed Ink Tone #080d0b) */
+.bio-inset-well {
+  background-color: var(--color-inset-bio);
+  border: 1px solid var(--color-jade-vein-2);
+}
+
+/* Neo-Chinese Hairline Framing */
+.fine-gold-border {
+  border-color: var(--color-gold-filigree-2);
+}
+
+.fine-jade-divider {
+  border-color: var(--color-jade-vein-3);
+}
+
+/* Editorial Justification with Strict CJK Punctuation Rules & Classical Poetic Negative Space (留白 1.9 line-height) */
+.editorial-justify,
+.playbill-bio-zh {
+  font-family: "Noto Serif SC", "PingFang SC", "STSong", "Songti SC", serif;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  text-align-last: left;
+  line-height: 1.9;
+  font-kerning: normal;
+}
+
+.playbill-bio-en {
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-style: italic;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  text-align-last: left;
+  line-height: 1.85;
+  font-kerning: normal;
+}
+
+.editorial-justify-center,
+.playbill-curatorial-zh {
+  font-family: "Noto Serif SC", "PingFang SC", "STSong", "Songti SC", serif;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  text-align-last: center;
+  line-height: 1.9;
+  font-kerning: normal;
+}
+
+.playbill-curatorial-en {
+  font-family: "Cormorant Garamond", Garamond, Georgia, serif;
+  font-style: italic;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  text-align-last: center;
+  line-height: 1.85;
+}
+
+/* Subtle Lunar Watermark Aura */
+.lunar-aura {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(207, 178, 104, 0.04) 0%, rgba(35, 58, 50, 0.03) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Clean Hidden Scrollbar (No Scroll Bar Displayed, Full Smooth Scrollability) */
+.scroll-chassis-scrollable {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  touch-action: pan-y;
+  overflow-y: visible;
+}
+
+.scroll-chassis-scrollable::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+  width: 0;
+  height: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   #moonWrapper,
   #lunarAmbientGlow,
@@ -691,3 +960,32 @@ body {
     transition: opacity 0.3s ease !important;
   }
 }
+
+/* Mute Function & Act Solid vs Grayout States at 50 DVH */
+.audio-active-solid {
+  background: #14231f !important;
+  border-color: rgba(207, 178, 104, 0.8) !important;
+  color: #f5d68d !important;
+  opacity: 1 !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.7), 0 0 12px rgba(207, 178, 104, 0.3) !important;
+}
+
+.audio-muted-grayout {
+  background: rgba(10, 18, 16, 0.5) !important;
+  border-color: rgba(115, 143, 131, 0.25) !important;
+  color: #87a398 !important;
+  opacity: 0.65 !important;
+  filter: grayscale(0.25);
+}
+
+.act-solid-50dvh {
+  opacity: 1 !important;
+  filter: none !important;
+  pointer-events: auto !important;
+}
+
+.act-grayout-50dvh {
+  opacity: 0.45 !important;
+  filter: grayscale(0.4) !important;
+}
+
