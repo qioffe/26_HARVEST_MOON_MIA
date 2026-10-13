@@ -1144,5 +1144,53 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(renderLoop);
   }
 
+/* -------------------------------------------------------------
+     8. CINEMATIC AUTO-SCROLL ENGINE FOR CREDITS
+     ------------------------------------------------------------- */
+  let isCreditsAutoScrolling = false;
+  let userPausedUntil = 0;
+  const SCROLL_SPEED = 0.85; // Pixels per frame
+
+  const creditsSection = document.getElementById('theatrical-credits-root');
+
+  const pauseAutoScroll = () => {
+    userPausedUntil = Date.now() + 500;
+  };
+
+  ['wheel', 'touchstart', 'touchmove', 'keydown', 'mousedown'].forEach((evt) => {
+    window.addEventListener(evt, pauseAutoScroll, { passive: true });
+  });
+
+  if (creditsSection && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // Trigger the instant the top of the credits enters anywhere in the bottom half of the screen
+          isCreditsAutoScrolling = entry.isIntersecting;
+        });
+      },
+      { 
+        threshold: 0,                // 0 means trigger immediately upon 1px entering view
+        rootMargin: '0px 0px -15% 0px' // Activates when the top of the section is 15% above the bottom edge
+      }
+    );
+    observer.observe(creditsSection);
+  }
+
+  function autoScrollCreditsLoop() {
+    if (isCreditsAutoScrolling && Date.now() > userPausedUntil) {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      
+      if (window.scrollY < maxScroll - 4) {
+        window.scrollBy(0, SCROLL_SPEED);
+      } else {
+        isCreditsAutoScrolling = false;
+      }
+    }
+    requestAnimationFrame(autoScrollCreditsLoop);
+  }
+
+  requestAnimationFrame(autoScrollCreditsLoop);
+
   requestAnimationFrame(renderLoop);
 });
