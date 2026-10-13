@@ -88,8 +88,7 @@
     <entity name="Pascal Cai · Yuepeng Li" />
   </section>
 
-  <!-- CLOSING GRATITUDE -->
-  <section title="Special Thanks: Volunteers" type="grid">
+ <section title="Special Thanks" type="grid">
     <entity name="Fengmei Du" />
     <entity name="Johnathan Alba" />
     <entity name="Jose Stoute" />
@@ -100,9 +99,6 @@
     <entity name="Fuwu Zhang" />
     <entity name="Celine Fang" />
     <entity name="Sherry Yao" />
-  </section>
-
-<section title="Special Thanks: Student Teams" type="grid">
     <entity name="St. Brendan High School Chinese Dragon Club" />
     <entity name="Carrollton School of the Sacred Heart Chinese Program" />
     <entity name="Kaijuan Yousheng Recitation Group" />
@@ -110,4 +106,5 @@
     <entity name="MDC Student Ambassadors" />
     <entity name="FIU Chinese Club" />
   </section>
+  
 </creditsSequence>

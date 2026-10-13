@@ -12,7 +12,7 @@
 html {
   width: 100%;
   min-height: 100%;
-  background-color: #000000;
+  background-color: #040506;
 }
 
 body {
@@ -20,7 +20,7 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #000000;
+  background-color: #040506;
   color: #FAF9F6;
   overflow-x: hidden;
   overflow-y: auto;
