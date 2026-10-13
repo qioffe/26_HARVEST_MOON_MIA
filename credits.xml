@@ -54,41 +54,42 @@
     <entity name="Fang Music" />
   </section>
 
-  <!-- 4. PRODUCTION TEAM & ACKNOWLEDGMENTS -->
-  <section title="Executive Producer" type="stacked">
-    <entity name="Julia Zhu · President, CLTA-FL" />
+ <!-- 4. FESTIVAL TEAM & ACKNOWLEDGMENTS -->
+  <section title="Festival Chair" type="stacked">
+    <entity name="Julia Zhu" />
   </section>
 
   <section title="Stage Director" type="stacked">
-    <entity name="Xiuying Huang · Immediate Past President, CLTA-FL" />
+    <entity name="Xiuying Huang" />
   </section>
 
-  <section title="Stage Coordinators" type="stacked">
-    <entity name="Aying Pan · Nana Du · Board Members, CLTA-FL" />
+  <section title="Stage Team" type="stacked">
+    <entity name="Aying Pan · Nana Du" />
   </section>
 
-  <section title="Technical Coordination" type="stacked">
-    <entity name="MDC Wolfson Campus Media Tech Team · Mao Mao" />
+  <section title="Sound &amp; Stage Tech" type="stacked">
+    <entity name="Mao Mao · MDC Wolfson Media Tech Team" />
   </section>
 
-  <section title="Masters of Ceremonies" type="stacked">
-    <entity name="Laura Milan · Master’s Student in Asian Studies, FIU" />
-    <entity name="Ricky Xu · Miami Palmetto Senior High School" />
+  <section title="Event Hosts" type="stacked">
+    <entity name="Laura Milan · Ricky Xu" />
   </section>
 
-  <section title="Cultural &amp; Educational Advisor" type="stacked">
+  <section title="Advisor" type="stacked">
     <entity name="Dr. Xuejun (Jim) Yu" />
   </section>
 
-  <section title="Vendor Coordinators" type="stacked">
-    <entity name="陈素萍 (Board Member, CLTA-FL) · Daniel Xiao (D&amp;E Foundation)" />
+  <section title="Market &amp; Fair Team" type="stacked">
+    <entity name="Shan Li · Siqi Li · Cynthia Guo · Kexin Zhang · Ayesha Hui" />
+    <entity name="Suping Chen · Daniel Xiao" />
   </section>
 
-  <section title="Cultural Fair Coordinators" type="stacked">
-    <entity name="Shan Li · Siqi Li · Cynthia Guo · Kexin Zhang · Ayesha Hui (CLTA-FL)" />
+  <section title="Photo &amp; Video" type="stacked">
+    <entity name="Pascal Cai · Yuepeng Li" />
   </section>
 
-  <section title="Special Thanks to Our Volunteers" type="grid">
+  <!-- CLOSING GRATITUDE -->
+  <section title="Special Thanks: Volunteers" type="grid">
     <entity name="Fengmei Du" />
     <entity name="Johnathan Alba" />
     <entity name="Jose Stoute" />
@@ -101,16 +102,12 @@
     <entity name="Sherry Yao" />
   </section>
 
-  <section title="School &amp; Student Volunteer Teams" type="grid">
+<section title="Special Thanks: Student Teams" type="grid">
     <entity name="St. Brendan High School Chinese Dragon Club" />
     <entity name="Carrollton School of the Sacred Heart Chinese Program" />
-    <entity name="“Kaijuan Yousheng” Recitation Group" />
-    <entity name="Diamond Minds TLA High School Students" />
-    <entity name="MDC Campus Students" />
+    <entity name="Kaijuan Yousheng Recitation Group" />
+    <entity name="Diamond Minds TLA High School" />
+    <entity name="MDC Student Ambassadors" />
     <entity name="FIU Chinese Club" />
-  </section>
-
-  <section title="Photo &amp; Video Credits" type="stacked">
-    <entity name="Pascal Cai · Yuepeng Li" />
   </section>
 </creditsSequence>
